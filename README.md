@@ -90,7 +90,10 @@ It's the moment we've all been waiting for! It's time to set up Google Firebase!
 #### Step Five - "Create Project and Continue":
 ![step five](repo_imgs/step_five.png)
 
-#### Step Six - "Begin Set up of RTDB"
+#### Step Six - "Begin Setup of RTDB"
 ![step six](repo_imgs/step_six.png)
+
+#### Step Seven - "Setup RTDB Continued"
+![step seven](repo_imgs/step_seven.png)
 
 
