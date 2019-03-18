@@ -96,4 +96,7 @@ It's the moment we've all been waiting for! It's time to set up Google Firebase!
 #### Step Seven - "Setup RTDB Continued"
 ![step seven](repo_imgs/step_seven.png)
 
+#### Step Eight - "Setup RTDB Continued"
+![step eight](repo_imgs/step_eight.png)
+
 
