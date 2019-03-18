@@ -48,3 +48,15 @@ _“Firebase is your server, your API and your datastore."_
 #### Who Uses Google Firebase?
 
 ![who uses google firebase?](who_uses_firebase.png)
+
+Ever since Google acquired firebase in 2014, it's rise in popularity has skyrocked to where it is today. Google Firebase gets better each year with robust features for both web and mobile applications.
+
+Many developers and companies have found tremendous value in this technology, which is why you probably recognize all of these brands!
+
+#### Not Just A Database
+
+This is where many people get confused when they hear of Google Firebase for the first time. Although the Real Time Database is a core feature, it's just one of several services you can use from Google Firebase:
+
+![firebase services](firebase_services.png)
+
+**The Best Definition of Google Firebase is that it's a "BAAS" (Backend As A Service)**
