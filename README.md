@@ -99,4 +99,9 @@ It's the moment we've all been waiting for! It's time to set up Google Firebase!
 #### Step Eight - "Setup RTDB Continued"
 ![step eight](repo_imgs/step_eight.png)
 
+#### Step Nine - "How to Add Firebase to React"
+![step nine](repo_imgs/step_nine.png)
+
+#### Step Ten - "How to Add Firebase to React (continued)"
+
 
