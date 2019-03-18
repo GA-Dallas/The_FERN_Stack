@@ -1,6 +1,6 @@
 # <img src="https://avatars2.githubusercontent.com/u/42252722?s=100&u=82447676189516e243e244d3f949169c0e91583b&v=4" /> The FRN Stack
 
-![react meets firebase](react_meets_firebase_wht.png)
+![react meets firebase](repo_imgs/react_meets_firebase_wht.png)
 For this lesson, we'll look at a secretly popular tech stack known at the FRN stack (Firebase, ReactJS, and NodeJS). 
 
 Here are the high level points we'll cover in this lesson:
@@ -25,7 +25,7 @@ _By the end of this lesson, students should be able to:_
 
 ## Pre-requisites and Requirements
 
-![tools](tools.png)
+![tools](repo_imgs/tools.png)
 
 _To have success in this lesson, students should have:_
 
@@ -47,7 +47,7 @@ _“Firebase is your server, your API and your datastore."_
 
 #### Who Uses Google Firebase?
 
-![who uses google firebase?](who_uses_firebase.png)
+![who uses google firebase?](repo_imgs/who_uses_firebase.png)
 
 Ever since Google acquired firebase in 2014, it's rise in popularity has skyrocked to where it is today. Google Firebase gets better each year with robust features for both web and mobile applications.
 
@@ -57,11 +57,11 @@ Many developers and companies have found tremendous value in this technology, wh
 
 This is where many people get confused when they hear of Google Firebase for the first time. Although the Real Time Database is a core feature, it's just one of several services you can use from Google Firebase:
 
-![firebase services](firebase_services.png)
+![firebase services](repo_imgs/firebase_services.png)
 
 **The Best Definition of Google Firebase is that it's a "BAAS" (Backend As A Service)**
 
-![google firebase](google_firebase.png)
+![google firebase](repo_imgs/google_firebase.png)
 
 #### The Google Firebase Real Time Database (RTDB)
 - The Core Service That Put the Spotlight on Firebase
@@ -75,6 +75,13 @@ It's the moment we've all been waiting for! It's time to set up Google Firebase!
 
 - Go to: [https://firebase.google.com/](https://firebase.google.com/)
 
-#### Step One:
-![step one](step_one.png)
+#### Step One - "Sign In":
+![step one](repo_imgs/step_one.png)
+
+
+#### Step Two - "Go to Console" or :"Get Started":
+![step two](repo_imgs/step_two.png)
+
+#### Step Three - "Add Project":
+![step three](repo_imgs/step_three.png)
 
