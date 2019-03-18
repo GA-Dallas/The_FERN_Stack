@@ -1,1 +1,1 @@
-## ![GA Cog](https://avatars2.githubusercontent.com/u/42252722?s=400&u=82447676189516e243e244d3f949169c0e91583b&v=4 | width=100) The FERN Stack
+<img src=https://avatars2.githubusercontent.com/u/42252722?s=200&u=82447676189516e243e244d3f949169c0e91583b&v=4" />
