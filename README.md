@@ -25,7 +25,7 @@ _By the end of this lesson, students should be able to:_
 
 ## Pre-requisites and Requirements
 
-![tools](./tools.png)
+![tools](tools.png)
 
 _To have success in this lesson, students should have:_
 
@@ -33,6 +33,18 @@ _To have success in this lesson, students should have:_
 - latest version `nodejs` installed
 - `create-react-app` build tool installed
 - `VS Code`as their text editor!
-- A Chrome Brower
+- A Chrome Browser
 
 _Please see below for links to the resources referenced above_
+
+## What is Google Firebase?
+
+_Founded by James Tamplin and Andrew Lee as “Firebase” in 2011, then acquired by Google in 2014._
+
+_“Firebase frees developers, so they can focus on creating phenomenal user experiences. You don’t need to manage servers, write an API, or configure a datastore.”_
+
+_“Firebase is your server, your API and your datastore."_
+
+#### Who Uses Google Firebase?
+
+![who uses google firebase?](who_uses_firebase.png)
