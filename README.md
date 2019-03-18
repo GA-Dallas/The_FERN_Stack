@@ -78,10 +78,19 @@ It's the moment we've all been waiting for! It's time to set up Google Firebase!
 #### Step One - "Sign In":
 ![step one](repo_imgs/step_one.png)
 
-
 #### Step Two - "Go to Console" or :"Get Started":
 ![step two](repo_imgs/step_two.png)
 
 #### Step Three - "Add Project":
 ![step three](repo_imgs/step_three.png)
+
+#### Step Four - "Project Details - Name Your Project: React-Fire-Todos":
+![step Four](repo_imgs/step_four.png)
+
+#### Step Five - "Create Project and Continue":
+![step five](repo_imgs/step_five.png)
+
+#### Step Six - "Begin Set up of RTDB"
+![step six](repo_imgs/step_six.png)
+
 
