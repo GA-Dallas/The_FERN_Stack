@@ -61,13 +61,20 @@ This is where many people get confused when they hear of Google Firebase for the
 
 **The Best Definition of Google Firebase is that it's a "BAAS" (Backend As A Service)**
 
-#### The Google Firebase Real Time Database (RTDB)
 ![google firebase](google_firebase.png)
 
+#### The Google Firebase Real Time Database (RTDB)
 - The Core Service That Put the Spotlight on Firebase
 - A Single JSON Object that allows up to 32 levels of Depth (We don't recommend nesting your data that deep though)
 
 ## Setup Google Firebase
 
 It's the moment we've all been waiting for! It's time to set up Google Firebase!
+
+**The First Step to Get Started is to "Signup For Google Firebase"**
+
+- Go to: [https://firebase.google.com/](https://firebase.google.com/)
+
+#### Step One:
+![step one](step_one.png)
 
