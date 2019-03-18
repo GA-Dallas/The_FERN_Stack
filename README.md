@@ -103,5 +103,9 @@ It's the moment we've all been waiting for! It's time to set up Google Firebase!
 ![step nine](repo_imgs/step_nine.png)
 
 #### Step Ten - "How to Add Firebase to React (continued)"
+![step ten](repo_imgs/step_ten.png)
+
+#### Step Eleven - "How to Add Firebase to React (continued)"
+![step eleven](repo_imgs/step_eleven.png)
 
 
