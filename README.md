@@ -193,6 +193,6 @@ export default firebase
 
 Doing so will run the risk of your project's config access stolen by bad actors
 
-<img src="https://giphy.com/embed/xdnr1hnqdi6I0" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen />
+<img src="https://media.giphy.com/media/xcnMwNunTCn9m/giphy.gif" />
 
 
