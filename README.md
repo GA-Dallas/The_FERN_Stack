@@ -109,11 +109,46 @@ It's the moment we've all been waiting for! It's time to set up Google Firebase!
 ![step eleven](repo_imgs/step_eleven.png)
 
 
-![react logo](repo_imgs/react_logo.png)
 ## Setup Our React Frontend
+![react logo](repo_imgs/react_logo.png)
 
 It's time to make sparks fly! Assuming you have the `create-react-app` build tool installed. Navigate to your Desktop `cd ~/Desktop` and then run `create-react-app react-fire-todos` to build our react application and install base dependencies.
 
+Once our app finished building, we'll need to clean it up and add some files to prepare it for Firebase Integration.
+
+#### Step 1 - Remove `logo.svg` and JSX from `App.js`
+
+- First we'll remove `logo.svg` inside of `./src/`
+- Then remove unnecessary JSX code from `App.js`
+  
+Your `App.js` should look like this once you're done:
+
+```js
+import React, { Component } from 'react';
+import 'App.css';
+
+class App extends Component {
+    render(){
+        return(
+            <div className="App">
+            
+            </div>
+        )
+    }
+}
+
+export default App
+```
+**NOTE: We've left the root div/JSX element in place**
+
+#### Step 2 - Create config directory/file for Google Firebase
+
+- Inside of `./src/` create a directory named `firebaseConfig`
+- Then inside of `./src/firebaseConfig/`, create a file named `index.js`
+
+You're directory/file structure should look like this once you're done:
+
+![directory structure](repo_imgs/directory_structure.png)
 
 
 
