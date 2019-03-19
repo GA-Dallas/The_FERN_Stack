@@ -22,6 +22,7 @@ _By the end of this lesson, students should be able to:_
 - Reference Google Firebase documentation
 - Demonstrate preliminary understanding of Google Firebase and how to use it with React
 
+<hr>
 
 ## Pre-requisites and Requirements
 
@@ -36,6 +37,8 @@ _To have success in this lesson, students should have:_
 - A Chrome Browser
 
 _Please see below for links to the resources referenced above_
+
+<hr>
 
 ## What is Google Firebase?
 
@@ -66,6 +69,8 @@ This is where many people get confused when they hear of Google Firebase for the
 #### The Google Firebase Real Time Database (RTDB)
 - The Core Service That Put the Spotlight on Firebase
 - A Single JSON Object that allows up to 32 levels of Depth (We don't recommend nesting your data that deep though)
+
+<hr>
 
 ## Setup Google Firebase
 
@@ -108,6 +113,7 @@ It's the moment we've all been waiting for! It's time to set up Google Firebase!
 #### Step Eleven - "How to Add Firebase to React (continued)"
 ![step eleven](repo_imgs/step_eleven.png)
 
+<hr>
 
 ## Setup Our React Frontend
 ![react logo](repo_imgs/react_logo.png)
@@ -115,6 +121,8 @@ It's the moment we've all been waiting for! It's time to set up Google Firebase!
 It's time to make sparks fly! Assuming you have the `create-react-app` build tool installed. Navigate to your Desktop `cd ~/Desktop` and then run `create-react-app react-fire-todos` to build our react application and install base dependencies.
 
 Once our app finished building, we'll need to clean it up and add some files to prepare it for Firebase Integration.
+
+<hr>
 
 #### Step 1 - Remove `logo.svg` and JSX from `App.js`
 
