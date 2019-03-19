@@ -54,7 +54,7 @@ _“Firebase is your server, your API and your datastore."_
 
 Ever since Google acquired firebase in 2014, it's rise in popularity has skyrocked to where it is today. Google Firebase gets better each year with robust features for both web and mobile applications.
 
-Many developers and companies have found tremendous value in this technology, which is why you probably recognize all of these brands!
+Many developers and companies have found tremendous value in this technology, which is why you probably recognize most of these brands!
 
 ### Not Just A Database
 
@@ -166,5 +166,28 @@ You're directory/file structure should look like this once you're done:
 
 Now we're ready to install Google Firebase! From the root of your project, go ahead and run the command `npm i firebase` (the `i` is short for install :wink:)
 
+Then, while that's installing, add the following code to `./src/firebaseConfig/index.js`
 
+```js
+import firebase from 'firebase/app'
+import 'firebase/database'
+import 'firebase/auth'
+
+
+const config = {
+    apiKey: YOUR_API_KEY,
+    authDomain: YOUR_AUTH_DOMAIN,
+    databaseURL: YOUR_DATABASE_URL,
+    projectId: YOUR_PROJECT_ID,
+    storageBucket: YOUR_STORAGE_BUCKET,
+    messagingSenderId: YOUR_MESSAGE_SENDER_ID
+};
+
+firebase.initializeApp(config)
+
+export default firebase
+```
+**Please NOTE:** For the simplicity of this lesson, we'll add the literal values for each respective key in our config object...i.e. `apiKey`, `authDomain`...etc
+
+:warning: **DO NOT PUSH TO GITHUB!** :warning:
 
