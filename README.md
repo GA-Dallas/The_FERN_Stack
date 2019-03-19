@@ -193,6 +193,8 @@ export default firebase
 
 Doing so will run the risk of your project's config access stolen by bad actors
 
-<img src="https://media.giphy.com/media/xcnMwNunTCn9m/giphy.gif" />
+<p style="text-align: center;">
+    <img src="https://media.giphy.com/media/xcnMwNunTCn9m/giphy.gif" />
+</p>
 
 
