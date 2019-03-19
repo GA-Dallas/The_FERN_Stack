@@ -194,7 +194,25 @@ export default firebase
 Doing so will run the risk of your project's config access stolen by bad actors
 
 
-<img style="text-align: center;" src="https://media.giphy.com/media/xcnMwNunTCn9m/giphy.gif" />
+<img src="https://media.giphy.com/media/xcnMwNunTCn9m/giphy.gif" />
+
+<hr>
+
+### Step 4 - Create your components files
+
+Now it's time to begin creating components for our project!
+
+The architecture of this project will be fairly straightforward. 
+We'll have one parent component, which will be our "smart component", this component will be in charge of passing data/methods down to our stateless functional components.
+
+Let's get started by creating a directory inside of `./src` named `components`. Inside of `./src/components/` create two files:
+
+- `Dashboard.js`
+- `Login.js`
+
+
+
+
 
 
 
