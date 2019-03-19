@@ -193,8 +193,6 @@ export default firebase
 
 Doing so will run the risk of your project's config access stolen by bad actors
 
-<div style="width:100%;height:0;padding-bottom:57%;position:relative;">
-<iframe src="https://giphy.com/embed/xdnr1hnqdi6I0" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen>
-</iframe>
-</div>
+<img src="https://giphy.com/embed/xdnr1hnqdi6I0" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen />
+
 
