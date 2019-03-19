@@ -160,5 +160,11 @@ You're directory/file structure should look like this once you're done:
 
 ![directory structure](repo_imgs/directory_structure.png)
 
+<hr>
+
+#### Step 3 - Enter Google Firebase
+
+Now we're ready to install Google Firebase! From the root of your project, go ahead and run the command `npm i firebase` (the `i` is short for install :wink:)
+
 
 
