@@ -109,3 +109,11 @@ It's the moment we've all been waiting for! It's time to set up Google Firebase!
 ![step eleven](repo_imgs/step_eleven.png)
 
 
+![react logo](repo_imgs/react_logo.png)
+## Setup Our React Frontend
+
+It's time to make sparks fly! Assuming you have the `create-react-app` build tool installed. Navigate to your Desktop `cd ~/Desktop` and then run `create-react-app react-fire-todos` to build our react application and install base dependencies.
+
+
+
+
