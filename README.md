@@ -141,6 +141,8 @@ export default App
 ```
 **NOTE: We've left the root div/JSX element in place**
 
+<hr>
+
 #### Step 2 - Create config directory/file for Google Firebase
 
 - Inside of `./src/` create a directory named `firebaseConfig`
