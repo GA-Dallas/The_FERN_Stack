@@ -352,7 +352,7 @@ First with the code:
 This is what's happening:
 
 1. First we expose our database object by calling `.database()` on `firebase`
-2. Now we access to the method called `.ref()`, which allows us to reference a key inside our data structure, it will be created if it doesn't exist. 
+2. Then we access to a method called `.ref()`, which allows us to reference a key inside our RTDB, it will be created if it doesn't exist. 
    - Think of it as a collection in a document-based database
 3. Now that we're referenced the location where our data belongs we can pass our data to another method called `.push()`, this allows us to add a child key to our `todos` key with a unique identifier as it's name and our data as it's value.
    - Subsequent calls to `.push()` with data passed in will continue to add children to our `todos()` key.
