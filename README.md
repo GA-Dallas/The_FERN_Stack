@@ -335,7 +335,7 @@ Now, once our component mounts, we should see our Database object logged to the 
 
 Let's see how creating data with the Firebase RTDB works.
 
-First with the code:
+Here's the code:
 
 ```js
     
