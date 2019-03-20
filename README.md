@@ -281,5 +281,51 @@ export default App
 
 ## Firebase 101
 
+For this part, we'll spend a few minutes getting familiar with the basic CRUD (CREATE READ UPDATE DELETE) operations of the Google Firebase RTDB (Real Time Database)
+
+<hr>
+
+### Step One - Setup Parent Component
+
+1. Import `firebase` inside of `App.js`
+2. Setup the `componentDidMount()` lifecycle method
+3. `console.log(firebase.database())` from inside of the `componentDidMount()` lifecycle method
+
+Once you're done, your code inside of `App.js` should look like this:
+
+```js
+import React, { Component } from 'react'
+import Dashboard from './components/Dashboard'
+import firebase from './firebaseConfig'
+import 'App.css'
+
+
+class App extends Component {
+    
+    componentDidMount(){
+        console.log(firebase.database())
+    }
+
+    render(){
+        return(
+            <div className="App">
+                <h1>Welcome to React Fire Todos</h1>
+                <Dashboard />
+            </div>
+        )
+    }
+}
+
+export default App
+```
+
+If we haven't done so already, it would be a good idea to run our react frontend using it's included dev server. We can do that with the following command from the root directory of our project:
+
+`npm start`
+
+Now, once our component mounts, we should see our Database object logged to the console:
+
+![console log](repo_imgs/console_log.png)
+
 
 
