@@ -355,7 +355,7 @@ This is what's happening:
 2. Then we have access to a method called [`.ref()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference#ref), which allows us to reference a key inside our RTDB, it will be created if it doesn't exist. 
    - Think of it as a collection inside a document-based database
 3. Now that we're referenced the location where our data belongs we can pass our data to another method called [`.push()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference#push), this allows us to add a child key to our `todos` key with a unique identifier as it's name and our data as it's value.
-   - Subsequent calls to `.push()` with data passed in will continue to add child keys to our `todos()` key.
+   - Subsequent calls to `.push()` with data passed in will continue to add child keys to our `todos` key.
 4. According to the [firebase documentation](https://firebase.google.com/docs/reference/js/firebase.database.Reference#push), [`.push()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference#push) returns a promise, so we can handle either case of it's outcome with [JavaScript's `.then()` or `.catch()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 5. In this case we can `console.log()` a message
 
