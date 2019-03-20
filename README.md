@@ -132,8 +132,8 @@ Once our app finished building, we'll need to clean it up and add some files to 
 Your `App.js` should look like this once you're done:
 
 ```js
-import React, { Component } from 'react';
-import 'App.css';
+import React, { Component } from 'react'
+import 'App.css'
 
 class App extends Component {
     render(){
@@ -253,8 +253,33 @@ const Login = props => (
 export default Login
 ```
 
+Next, for our parent component, `App.js`, we'll add the following code:
+
+```js
+import React, { Component } from 'react'
+import Dashboard from './components/Dashboard'
+import 'App.css'
 
 
+class App extends Component {
+    render(){
+        return(
+            <div className="App">
+                <h1>Welcome to React Fire Todos</h1>
+                <Dashboard />
+            </div>
+        )
+    }
+}
+
+export default App
+```
+
+:tada: Awesome! Now we're ready to begin working with Firebase!
+
+<hr>
+
+## Firebase 101
 
 
 
