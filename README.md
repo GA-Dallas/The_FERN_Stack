@@ -357,5 +357,6 @@ This is what's happening:
 3. Now that we're referenced the location where our data belongs we can pass our data to another method called `.push()`, this allows us to add a child key to our `todos` key with a unique identifier as it's name and our data as it's value.
    - Subsequent calls to `.push()` with data passed in will continue to add child keys to our `todos()` key.
 4. According to the firebase documentation, `.push()` returns a promise, so we can handle either case of it's outcome with JavaScript's `.then()` or `.catch()`
+5. In this case we can `console.log()` a message
 
 
