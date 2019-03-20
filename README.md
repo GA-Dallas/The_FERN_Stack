@@ -210,6 +210,48 @@ Let's get started by creating a directory inside of `./src` named `components`. 
 - `Dashboard.js`
 - `Login.js`
 
+Once you're done, your directory/file structure should look like this:
+
+![component files](repo_imgs/directory_structure2.png)
+
+<hr>
+
+### Step 5 - Add boilerplate code to component files
+
+For your `Dashboard.js` component file, we'll make a stateless functional component. Go ahead and add this code:
+
+```js
+import React from 'react'
+
+const Dashboard = props => (
+    <div>
+        <h5>Here are your Todos</h5>
+        <div>
+            {
+                /* We'll print our todos here */
+            }
+            <form>
+                <input />
+                <button>Add Todo</button>
+            </form>
+        </div>
+    </div>
+)
+
+export default Dashboard
+```
+
+For the `Login.js` component file, we'll make a stateless functional component for it as well. Go ahead and add the following code to that file:
+
+```js
+import React from 'react'
+
+const Login = props => (
+    <button>Login with Google</button>
+)
+
+export default Login
+```
 
 
 
