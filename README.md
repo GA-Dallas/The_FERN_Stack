@@ -285,7 +285,7 @@ For this part, we'll spend a few minutes getting familiar with the basic CRUD (C
 
 <hr>
 
-### Step One - Setup Parent Component
+### Setup Parent Component
 
 1. Import `firebase` inside of `App.js`
 2. Setup the `componentDidMount()` lifecycle method
@@ -327,5 +327,35 @@ Now, once our component mounts, we should see our Database object logged to the 
 
 ![console log](repo_imgs/console_log.png)
 
+**NOTE: We'll use the `componentDidMount()` method a lot in this section** :wink:
+
+<hr>
+
+### Create Data
+
+Let's see how creating data with the Firebase RTDB works.
+
+First with the code:
+
+```js
+    
+    const todoText = "Clean my room"
+
+    componentDidMount(){
+        firebase.database().ref('todos')
+        .push({text: todoText})
+        .then(() => console.log("Todo Written Successfully"))
+        .catch(error => console.log("Something went wrong: ", error.messge))
+    }
+```
+
+This is what's happening:
+
+1. First we expose our database object by calling `.database()` on `firebase`
+2. Now we access to the method called `.ref()`, which allows us to reference a key inside our data structure, it will be created if it doesn't exist. 
+   - Think of it as a collection in a document-based database
+3. Now that we're referenced the location where our data belongs we can pass our data to another method called `.push()`, this allows us to add a child key to our `todos` key with a unique identifier as it's name and our data as it's value.
+   - Subsequent calls to `.push()` with data passed in will continue to add children to our `todos()` key.
+4. According to the firebase documentation, `.push()` returns a promise, so we can handle either case of it's outcome with JavaScript's `.then()` or `.catch()`
 
 
