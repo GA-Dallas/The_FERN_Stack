@@ -381,4 +381,6 @@ componentDidMount(){
 This is what's happening:
 
 1. First we reference the data by it's unique key using a string path: `todos/-Lb0H9NA_e32dvLg86OC`
-2. Then we call firebase's `.once()` method, which listens for exactly one event of the specified event type we pass in, and then stops listening; in this case we specify `value`.
+2. Then we call firebase's [`.once()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#once) method, which listens for exactly one event of the specified event type we pass in, and then stops listening; in this case we specify `value`.
+   - You can check out more event types [here](https://firebase.google.com/docs/reference/js/firebase.database?authuser=0#eventtype) 
+
