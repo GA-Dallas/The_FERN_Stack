@@ -281,7 +281,7 @@ export default App
 
 ## Firebase 101
 
-For this part, we'll spend a few minutes getting familiar with the basic CRUD (CREATE READ UPDATE DELETE) operations of the Google Firebase RTDB (Real Time Database)
+For this part, we'll spend a few minutes getting familiar with the basic CRUD (**CREATE READ UPDATE DELETE**) operations of the Google Firebase RTDB (Real Time Database)
 
 <hr>
 
@@ -339,24 +339,46 @@ Here's the code:
 
 ```js
     
-    const todoText = "Clean my room"
+const todoText = "Clean my room"
 
-    componentDidMount(){
-        firebase.database().ref('todos')
-        .push({text: todoText})
-        .then(() => console.log("Todo Written Successfully"))
-        .catch(error => console.log("Something went wrong: ", error.messge))
-    }
+componentDidMount(){
+    firebase.database().ref('todos')
+    .push({text: todoText})
+    .then(() => console.log("Todo Written Successfully"))
+    .catch(error => console.log("Something went wrong: ", error.messge))
+}
 ```
 
 This is what's happening:
 
 1. First we expose our database object by calling [`.database()`](https://firebase.google.com/docs/reference/js/firebase.database) on `firebase`
-2. Then we have access to a method called [`.ref()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference#ref), which allows us to reference a key inside our RTDB, it will be created if it doesn't exist. 
+2. Then we have access to a method called [`.ref()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference#ref), which allows us to reference a key inside our RTDB; it will be created if it doesn't exist. 
    - Think of it as a collection inside a document-based database
-3. Now that we're referenced the location where our data belongs we can pass our data to another method called [`.push()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference#push), this allows us to add a child key to our `todos` key with a unique identifier as it's name and our data as it's value.
+3. Now that we've referenced the location where our data belongs, we can pass our data to another method called [`.push()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference#push), this allows us to add a child key to our `todos` key with a unique identifier as it's name and our data as it's value.
    - Subsequent calls to `.push()` with data passed in will continue to add child keys to our `todos` key.
 4. According to the [firebase documentation](https://firebase.google.com/docs/reference/js/firebase.database.Reference#push), [`.push()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference#push) returns a promise, so we can handle either case of it's outcome with [JavaScript's `.then()` or `.catch()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 5. In this case we can `console.log()` a message
 
+<hr>
 
+### Read Data 
+
+Let's see how reading data with the Firebase RTDB works.
+
+Here's the code:
+
+
+#### We can read a single piece of data by it's unique key once
+```js
+componentDidMount(){
+    firebase.database().ref('todos/-Lb0H9NA_e32dvLg86OC')
+    .once('value')
+    .then(snapshot => console.log(snapshot.val()))
+    .catch(error => console.log('Something Went Wrong', error.message))
+}
+
+```
+This is what's happening:
+
+1. First we reference the data by it's unique key using a string path: `todos/-Lb0H9NA_e32dvLg86OC`
+2. Then we call firebase's `.once()` method, which listens for exactly one event of the specified event type we pass in, and then stops listening; in this case we specify `value`.
