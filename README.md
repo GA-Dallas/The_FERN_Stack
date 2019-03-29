@@ -385,5 +385,5 @@ This is what's happening:
    - You can check out more event types [here](https://firebase.google.com/docs/reference/js/firebase.database?authuser=0#eventtype) 
 3. `.once()` returns a `Promise`, which we can handle with JavaScript's `.then()` or `.catch()`.
 4. Upon a success, the callback we pass as an argument to `.then()` get's passed a current snapshot of our data, which by convention, Google Firebase calls `dataSnapshot` or `snapshot`.
-5. We can then access the properties of that `snapshot`, with `.val()` or `.key` to access the values or unique key respectively.
+5. We can then access the properties of that `snapshot`, with `.key` or by calling `.val()` to access the data `snapshot`'s unique key respectively.
 
