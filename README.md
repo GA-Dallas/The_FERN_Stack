@@ -388,3 +388,31 @@ This is what's happening:
 5. We can then access the unique key or properties of that `snapshot`, with `.key` or by calling `.val()` respectively.
 6. Upon a failure, the callback we pass as an argument to `.catch()` get's passed an error object with a message property we can access to gather information regarding the failure.
 
+
+#### We can create an array containing multiple pieces of data 
+
+```js
+componentDidMount(){
+    firebase.database().ref('todos')
+    .on('value')
+    .then(snapshot => {
+        const dataArray = []
+        snapshot.forEach(childSnapshot => {
+            dataArray.push({
+                id: childSnapshot.key,
+                ...childSnapshot.val()
+            })
+        })
+        console.log(dataArray)
+        // We could also set our state array here 
+    })
+    .catch(error => console.log('Something Went Wrong', error.message))
+}
+
+```
+
+This is what's happening:
+
+1. First we reference our todos collection using firebase's `.ref()`
+2. Then we call firebase's `.on()` listener method that will listen for a particular event type at our reference; in this case, we listen for a `value` type.
+   - Unlike the `.once()` method, the `.on()` method sets up a subscription to firebase that always listens for the event type we specify; *"we call it and forget it"*
