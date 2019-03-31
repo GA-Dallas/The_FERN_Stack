@@ -384,12 +384,14 @@ This is what's happening:
 2. Then we call firebase's [`.once()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#once) method, which listens for the specified event type we pass in once; in this case we specify `value`.
    - You can check out more event types [here](https://firebase.google.com/docs/reference/js/firebase.database?authuser=0#eventtype) 
 3. `.once()` returns a `Promise`, which we can handle with JavaScript's `.then()` or `.catch()`.
-4. Upon a success, the callback we pass as an argument to `.then()` get's passed a current snapshot of our data, which by convention, Google Firebase calls `dataSnapshot` or `snapshot`.
+4. Upon a success, the callback we pass as an argument to `.then()` get's passed a current snapshot of our data, which by convention, Google Firebase calls [`dataSnapshot`](https://firebase.google.com/docs/reference/js/firebase.database.DataSnapshot?authuser=0) or `snapshot`.
 5. We can then access the unique key or properties of that `snapshot`, with `.key` or by calling `.val()` respectively.
 6. Upon a failure, the callback we pass as an argument to `.catch()` get's passed an error object with a message property we can access to gather information regarding the failure.
 
 
 #### We can create an array containing multiple pieces of data 
+
+**NOTE:** _This is the primary way to read data from a Database._
 
 ```js
 componentDidMount(){
@@ -413,6 +415,11 @@ componentDidMount(){
 
 This is what's happening:
 
-1. First we reference our todos collection using firebase's `.ref()`
-2. Then we call firebase's `.on()` listener method that will listen for a particular event type at our reference; in this case, we listen for a `value` type.
-   - Unlike the `.once()` method, the `.on()` method sets up a subscription to firebase that always listens for the event type we specify; *"we call it and forget it"*
+1. First we reference our todos collection using firebase's [`.ref()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#ref)
+2. Then we call firebase's [`.on()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#on) listener method that will listen for a particular event type at our reference; in this case, we listen for a [`value`](https://firebase.google.com/docs/reference/js/firebase.database?authuser=0#eventtype) type.
+   - Unlike the `.once()` method, `.on()` initializes an ongoing subscription to firebase that always listens for the event type we specify; *"we call it and forget it"*
+3. Just like `once()`, `.on()` returns a `Promise` we can handle with JavaScript's `.then()` or `.catch()` for success and failure repectively.
+4. For the `value` event type, we'll get the initial [`snapShot`](https://firebase.google.com/docs/reference/js/firebase.database.DataSnapshot?authuser=0) stored at whatever we pass to `.ref()`, and then trigger again each time the data changes. That `snapshot` gets passed to the annonymous callback function we pass into `.then()`.
+5. We then use firebase's [`.forEach()`](https://firebase.google.com/docs/reference/js/firebase.database.DataSnapshot?authuser=0#foreach), to enumerate the `top-level` children from our `snapshot` thus providing access to each `childSnapshot` in our `snapshot`.
+6. `.forEach()` takes a callback as an argument so we can perform an action on each `childSnapshot`; in this case, we're creating a new object for each `childSnapshot` and pushing them into an array.
+7. We can then update state with the new array each time a change pertaining to the event we specify is detected.
