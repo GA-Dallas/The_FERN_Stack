@@ -421,5 +421,5 @@ This is what's happening:
 3. Just like `once()`, `.on()` returns a `Promise` we can handle with JavaScript's `.then()` or `.catch()` for success and failure repectively.
 4. For the `value` event type, we'll get the initial [`snapShot`](https://firebase.google.com/docs/reference/js/firebase.database.DataSnapshot?authuser=0) stored at whatever we pass to `.ref()`, and then trigger again each time the data changes. That `snapshot` gets passed to the annonymous callback function we pass into `.then()`.
 5. We then use firebase's [`.forEach()`](https://firebase.google.com/docs/reference/js/firebase.database.DataSnapshot?authuser=0#foreach), to enumerate the `top-level` children from our `snapshot` thus providing access to each `childSnapshot` in our `snapshot`.
-6. `.forEach()` takes a callback as an argument so we can perform an action on each `childSnapshot`; in this case, we're creating a new object for each `childSnapshot` and pushing them into an array.
-7. We can then update state with the new array each time a change pertaining to the event we specify is detected.
+6. `.forEach()` takes a callback as an argument so we can perform an action on each `childSnapshot`; in this case, we're creating a new object for each `childSnapshot` and pushing it into an array.
+7. With all of this in place, we can update state with a new array each time a change pertaining to the event we specify is detected. (i.e. ... "value", "child_added", "child_changed" ...etc)
