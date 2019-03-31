@@ -335,6 +335,37 @@ Now, once our component mounts, we should see our Database object logged to the 
 
 Let's see how creating data with the Firebase RTDB works.
 
+
+#### Let's create a single document.
+
+Here's the code:
+
+```js
+// First let's save a piece of data to a variable we can reference later
+const todo = { text: "Clean my room" }
+
+firebase.database().ref('todos')
+.set(todo)
+.then(() => console.log("Todo Written Successfully"))
+.catch(error => {
+    console.log("Something Went Wrong: ", error.message)
+})
+
+```
+This is what's happening:
+
+1. First we expose our database object by calling [`.database()`](https://firebase.google.com/docs/reference/js/firebase.database) on `firebase`
+2. Then we have access to a method called [`.ref()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference#ref), which allows us to reference a key inside our RTDB; it will be created if it doesn't exist. 
+   - Think of it as a collection inside a document-based database
+3. Now that we've referenced the location where our data belongs, we can pass our data to another method called [`.set()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#set), this method writes data to the the referenced database location.This method will also overwrite any data at this location and all child locations.
+4. According to the [firebase documentation](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#set), [`.set()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#set) returns a promise, so we can handle either case of it's outcome with [JavaScript's `.then()` or `.catch()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
+5. In this case we can `console.log()` a message
+
+
+#### What if we needed to create multiple "documents" in a collection?
+
+_The Firebase RTDB has a special way of doing that_
+
 Here's the code:
 
 ```js
