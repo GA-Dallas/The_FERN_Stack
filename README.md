@@ -52,7 +52,7 @@ _“Firebase is your server, your API and your datastore."_
 
 ![who uses google firebase?](repo_imgs/who_uses_firebase.png)
 
-Ever since Google acquired firebase in 2014, it's rise in popularity has skyrocked to where it is today. Google Firebase gets better each year with robust features for both web and mobile applications.
+Ever since Google acquired Firebase in 2014, it's rise in popularity has skyrocked to where it is today. Google Firebase gets better each year with robust features for both web and mobile applications.
 
 Many developers and companies have found tremendous value in this technology, which is why you probably recognize most of these brands!
 
@@ -341,12 +341,13 @@ Here's the code:
     
 const todoText = "Clean my room"
 
-componentDidMount(){
-    firebase.database().ref('todos')
-    .push({text: todoText})
-    .then(() => console.log("Todo Written Successfully"))
-    .catch(error => console.log("Something went wrong: ", error.messge))
-}
+firebase.database().ref('todos')
+.push({text: todoText})
+.then(() => console.log("Todo Written Successfully"))
+.catch(error => {
+    console.log("Something went wrong: ", error.messge)
+})
+
 ```
 
 This is what's happening:
@@ -369,14 +370,14 @@ Here's the code:
 
 
 #### We can read a single piece of data by it's unique key once
-```js
-componentDidMount(){
-    firebase.database().ref('todos/-Lb0H9NA_e32dvLg86OC')
-    .once('value')
-    .then(snapshot => console.log(snapshot.val()))
-    .catch(error => console.log('Something Went Wrong', error.message))
-}
 
+```js
+firebase.database().ref('todos/-Lb0H9NA_e32dvLg86OC')
+.once('value')
+.then(snapshot => console.log(snapshot.val()))
+.catch(error => {
+    console.log('Something Went Wrong', error.message)
+})
 ```
 This is what's happening:
 
@@ -391,35 +392,63 @@ This is what's happening:
 
 #### We can create an array containing multiple pieces of data 
 
-**NOTE:** _This is the primary way to read data from a Database._
+**NOTE:** _This is the primary way to read data from the RTDB._
 
 ```js
-componentDidMount(){
-    firebase.database().ref('todos')
-    .on('value')
-    .then(snapshot => {
-        const dataArray = []
-        snapshot.forEach(childSnapshot => {
-            dataArray.push({
-                id: childSnapshot.key,
-                ...childSnapshot.val()
-            })
+firebase.database().ref('todos')
+.on('value')
+.then(snapshot => {
+    const dataArray = []
+    snapshot.forEach(childSnapshot => {
+        dataArray.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val()
         })
-        console.log(dataArray)
-        // We could also set our state array here 
     })
-    .catch(error => console.log('Something Went Wrong', error.message))
-}
+    console.log(dataArray)
+    // We could also set our state array here 
+})
+.catch(error => {
+    console.log('Something Went Wrong', error.message)
+})
 
 ```
 
 This is what's happening:
 
-1. First we reference our todos collection using firebase's [`.ref()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#ref)
-2. Then we call firebase's [`.on()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#on) listener method that will listen for a particular event type at our reference; in this case, we listen for a [`value`](https://firebase.google.com/docs/reference/js/firebase.database?authuser=0#eventtype) type.
-   - Unlike the `.once()` method, `.on()` initializes an ongoing subscription to firebase that always listens for the event type we specify; *"we call it and forget it"*
+1. First we reference our todos collection using Firebase's [`.ref()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#ref)
+2. Then we call Firebase's [`.on()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#on) listener method that will listen for a particular event type at our reference; in this case, we listen for a [`value`](https://firebase.google.com/docs/reference/js/firebase.database?authuser=0#eventtype) type.
+   - Unlike the `.once()` method, `.on()` initializes an ongoing subscription to Firebase that always listens for the event type we specify; *"we call it and forget it"*
 3. Just like `once()`, `.on()` returns a `Promise` we can handle with JavaScript's `.then()` or `.catch()` for success and failure repectively.
 4. For the `value` event type, we'll get the initial [`snapShot`](https://firebase.google.com/docs/reference/js/firebase.database.DataSnapshot?authuser=0) stored at whatever we pass to `.ref()`, and then trigger again each time the data changes. That `snapshot` gets passed to the annonymous callback function we pass into `.then()`.
-5. We then use firebase's [`.forEach()`](https://firebase.google.com/docs/reference/js/firebase.database.DataSnapshot?authuser=0#foreach), to enumerate the `top-level` children from our `snapshot` thus providing access to each `childSnapshot` in our `snapshot`.
+5. We then use Firebase's [`.forEach()`](https://firebase.google.com/docs/reference/js/firebase.database.DataSnapshot?authuser=0#foreach), to enumerate the `top-level` children from our `snapshot` thus providing access to each `childSnapshot` in our `snapshot`.
 6. `.forEach()` takes a callback as an argument so we can perform an action on each `childSnapshot`; in this case, we're creating a new object for each `childSnapshot` and pushing it into an array.
 7. With all of this in place, we can update state with a new array each time a change pertaining to the event we specify is detected. (i.e. ... "value", "child_added", "child_changed" ...etc)
+
+<hr>
+
+### Update Data
+
+Let's see how updating data with the Firebase RTDB works.
+
+Here's the code:
+
+```js
+// Here's the todo text we'd like to update an existing todo to
+const updatedTodoText = "Clean the living room"
+
+firebase.database().ref('todos/-Lb0H9NA_e32dvLg86OC')
+.update({ text: updatedTodoText })
+.then(() => console.log("Todo Updated Successfully"))
+.catch(error => {
+    console.log("Something went wrong: ", error.message)
+})
+
+```
+
+This is what's happening:
+
+1. First we reference a single piece of data we'd like to update.
+2. Then we call Firebase's [`.update()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#update) passing in the key along with it's updated value; Firebase handles the rest! :sunglasses:
+3. `.update()` is an extremely powerful Firebase method, so it's recommended to [check out the documentation](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#update) to fully grasp it's capabilities.
+4. Just like many of the **CRUD** operations methods for the Firebase RTDB, `.update()` returns a promise we can pass to either `.then()` or `.catch()` depending on success or failure.
