@@ -386,5 +386,5 @@ This is what's happening:
 3. `.once()` returns a `Promise`, which we can handle with JavaScript's `.then()` or `.catch()`.
 4. Upon a success, the callback we pass as an argument to `.then()` get's passed a current snapshot of our data, which by convention, Google Firebase calls `dataSnapshot` or `snapshot`.
 5. We can then access the unique key or properties of that `snapshot`, with `.key` or by calling `.val()` respectively.
-6. Upon a failure, the callback we pass as an argument to `.catch()` get's passed an error object, with a message property we can access to gather information regarding the failure.
+6. Upon a failure, the callback we pass as an argument to `.catch()` get's passed an error object with a message property we can access to gather information regarding the failure.
 
