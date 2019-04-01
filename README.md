@@ -539,4 +539,38 @@ class App extends Component {
 1. We'll use the property initializer syntax for cleanliness
 2. We need a `text` state property to store input data from our form
 3. Then we'll store a collection of todo objects inside of a `todos` array property
-4. Later on we'll explore how firebase handles authentication, so we'll setup a properties to store data points based on authentication state.
+4. Later on we'll explore how firebase handles authentication, so we'll setup a properties to store data based on authentication state.
+
+<hr>
+
+### Step Two - Create a Method to Update Component State
+
+To handle form data from `Dashboard.js` as React intended, we’ll Create a `handleChange()` method inside of `App.js` to update it’s state `text` property based on user input.
+
+For more context on how React handles forms, you can check out [this section from the documentation](https://reactjs.org/docs/forms.html)
+
+Here's the code:
+
+```js
+class App extends Component {
+    
+    state = {
+        text: "",
+        todos: [],
+        user: null,
+        isAuthenticated: false
+    }
+
+    handleChange = e => {
+        this.setState({ text: e.target.value })
+    }
+    
+    render(){
+        ...
+ 
+```
+
+<hr>
+
+### Step Three - Pass Methods and State as Props
+
