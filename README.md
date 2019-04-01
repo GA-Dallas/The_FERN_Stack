@@ -503,3 +503,40 @@ Here's what's happening:
 1. First we reference a single piece of data we'd like to remove
 2. Then we call Firebase's [`.remove()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference#remove) method, which will "remove" the data at the referenced RTDB location
 3. Then we can handle the `Promise` that gets returned from calling `remove()` just as before using JavaScript's `.then()` and `.catch()`
+
+<hr>
+
+## Let's Build an App!
+
+One of the best ways to learn a new skill/technology is by incorporating them into a project!
+
+That said, let's build a simple todo app using React and Firebase!
+
+"Todo" this, we'll work in steps, let's get started:
+
+<hr>
+
+### Step One - Setup Parent Component State:
+
+For simplicity, we'll use `App.js` that gets generated from `create-react-app` as our parent component, let's go there now.
+
+Here's the code:
+
+```js
+class App extends Component {
+    
+    state = {
+        text: "",
+        todos: [],
+        user: null,
+        isAuthenticated: false
+    }
+    
+    render(){
+        ...
+ 
+```
+1. We'll use the property initializer syntax for cleanliness
+2. We need a `text` state property to store input data from our form
+3. Then we'll store a collection of todo objects inside of a `todos` array property
+4. Later on we'll explore how firebase handles authentication, so we'll setup a properties to store data points based on authentication state.
