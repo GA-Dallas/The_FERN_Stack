@@ -523,6 +523,8 @@ For simplicity, we'll use `App.js` that gets generated from `create-react-app` a
 Here's the code:
 
 ```js
+// Inside of App.js
+
 class App extends Component {
     
     state = {
@@ -552,6 +554,7 @@ For more context on how React handles forms, you can check out [this section fro
 Here's the code:
 
 ```js
+// Inside of App.js
 class App extends Component {
     
     state = {
@@ -574,9 +577,13 @@ class App extends Component {
 
 ### Step Three - Pass Methods and State as Props
 
-To use `handleChange()` and `text` state property in the appropriate place, we’ll pass them as props to our `<Dashboard />` component:
+To use `handleChange()` and `text` state property in the appropriate place, we’ll pass them as props to our `<Dashboard />` component.
+
+Here's the code:
 
 ```js
+// Inside of App.js
+
   render() {
     return (
       <div className="App">
@@ -590,15 +597,104 @@ To use `handleChange()` and `text` state property in the appropriate place, we�
   }
 ```
 
+<hr>
+
 ### Step Four - Wire Up Input Element in `Dashboard.js`
 
-From inside of `Dashboard.js`, we can reference our `text` and `handleChange` members from `props` using `value` and `onChange`:
+From inside of `Dashboard.js`, we can reference our `text` and `handleChange` members from `props` using `value` and `onChange`.
+
+Here's the code:
 
 ```js
+// Inside of Dashboard.js
 
 import React from 'react'
 
-const Dashboard = (props) => (
+const Dashboard = props => (
+    <div>
+        <h5>Here are your todos</h5>
+        <div>
+            {
+                /* We'll Print Our Todos here*/
+            }
+        </div>
+        <form>
+            <input 
+            value={props.text} 
+            onChange={props.handleChange}
+            />
+            <button>Add Todo</button>
+        </form>
+    </div>
+)
+
+export default Dashboard
+```
+
+<hr>
+
+### Step Five - Create a Submit Handler Method in `App.js`
+
+Now let’s create a submit handler method for our form element.
+
+Here's the code:
+
+```js
+// Inside of App.js
+
+handleSubmit = e => {
+  e.preventDefault()
+  firebase.database().ref('todos')
+  .push({ text: this.state.text })
+  .then(() => {
+    this.setState({ text: "" })
+    console.log("Data Created Successfully")
+  })
+  .catch(error => {
+      console.log("Something Went Wrong: ", error)
+   })
+}
+```
+
+<hr>
+
+### Step Six - Pass Submit Handler as Prop to `Dashboard.js`
+
+In `App.js`, Just as we’ve done with state and our change handler, we’ll pass our submit handler as a prop to our `Dashboard` component.
+
+Here's the code:
+
+```js
+// Inside of App.js
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Welcome to React Fire Todos</h1>
+            <Dashboard
+              text={this.state.text}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit} 
+            />
+      </div>
+    );
+  }
+```
+
+<hr>
+
+### Step Seven - Final Setup of Form Element
+
+Now we can reference the `handleSubmit` event handler in our form using `onSubmit`
+
+Here's the code:
+
+```js
+// Inside of Dashboard.js
+
+import React from 'react'
+
+const Dashboard = props => (
     <div>
         <h5>Here are your todos</h5>
         <div>
@@ -618,28 +714,42 @@ const Dashboard = (props) => (
 
 export default Dashboard
 ```
-### Step Five - Create a Submit Handler Method in `App.js`
 
-Now let’s create a submit handler method for our form element.
+<hr>
+
+### Step Eight - Setup of Data Fetch Subscription using React Lifecycle Method
+
+Now, inside of `App.js`, let’s take advantage of the `componentDidMount()` lifecycle method to initialize a subscription once the component mounts. As we learned earlier, this subscription will receive new data and update our state array anytime a change is detected.
+
+
+Here's the code:
 
 ```js
-handleSubmit = e => {
-  e.preventDefault()
-  firebase.database().ref('todos')
-  .push({ text: this.state.text })
-  .then(() => {
-    this.setState({ text: "" })
-    console.log("Data Created Successfully")
-  })
-  .catch(error => {
-      console.log("Something Went Wrong: ", error)
-   })
+// Inside of App.js
+
+componentDidMount(){
+    firebase.database().ref('todos')
+    .on('value', snapshot => {
+      const newStateArray = []
+      snapshot.forEach(childSnapshot => {
+        newStateArray.push({
+          id: childSnapshot.key,
+          ...childSnapshot.val()
+        })
+      })
+      this.setState({ todos: newStateArray })
+    })
 }
+
 ```
 
-### Step Six - Pass Submit Handler as Prop to `Dashboard.js`
+<hr>
 
-In App.js, Just as we’ve done with state and our change handler, we’ll pass our submit handler as a prop to our Dashboard component.
+### Step Nine - Pass State Array to `Dashboard.js` as a Prop
+
+We'll use our `<Dashboard />` component to render our list of todos, so let's pass our state array, which will contain our todos, to our `<Dashboard />` component as a prop.
+
+Here's the code:
 
 ```js
   render() {
@@ -648,6 +758,7 @@ In App.js, Just as we’ve done with state and our change handler, we’ll pass 
         <h1>Welcome to React Fire Todos</h1>
             <Dashboard
               text={this.state.text}
+              todos={this.state.todos}
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit} 
             />
