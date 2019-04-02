@@ -555,6 +555,7 @@ Here's the code:
 
 ```js
 // Inside of App.js
+    
 class App extends Component {
     
     state = {
@@ -584,22 +585,22 @@ Here's the code:
 ```js
 // Inside of App.js
 
-  render() {
-    return (
-      <div className="App">
-        <h1>Welcome to React Fire Todos</h1>
-            <Dashboard
-              text={this.state.text}
-              handleChange={this.handleChange} 
-            />
-      </div>
-    );
-  }
+render() {
+  return (
+    <div className="App">
+      <h1>Welcome to React Fire Todos</h1>
+          <Dashboard
+            text={this.state.text}
+            handleChange={this.handleChange} 
+          />
+    </div>
+  );
+}
 ```
 
 <hr>
 
-### Step Four - Wire Up Input Element in `Dashboard.js`
+### Step Four - Wire Up Input Element in `<Dashboard />` Component
 
 From inside of `Dashboard.js`, we can reference our `text` and `handleChange` members from `props` using `value` and `onChange`.
 
@@ -658,7 +659,7 @@ handleSubmit = e => {
 
 <hr>
 
-### Step Six - Pass Submit Handler as Prop to `Dashboard.js`
+### Step Six - Pass Submit Handler as Prop to `<Dashboard />` Component
 
 In `App.js`, Just as we’ve done with state and our change handler, we’ll pass our submit handler as a prop to our `Dashboard` component.
 
@@ -667,18 +668,18 @@ Here's the code:
 ```js
 // Inside of App.js
 
-  render() {
-    return (
-      <div className="App">
-        <h1>Welcome to React Fire Todos</h1>
-            <Dashboard
-              text={this.state.text}
-              handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit} 
-            />
-      </div>
-    );
-  }
+render() {
+  return (
+    <div className="App">
+      <h1>Welcome to React Fire Todos</h1>
+          <Dashboard
+            text={this.state.text}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit} 
+          />
+    </div>
+  );
+}
 ```
 
 <hr>
@@ -745,29 +746,31 @@ componentDidMount(){
 
 <hr>
 
-### Step Nine - Pass State Array to `Dashboard.js` as a Prop
+### Step Nine - Pass State Array to `<Dashboard />` Component as a Prop
 
 We'll use our `<Dashboard />` component to render our list of todos, so let's pass our state array, which will contain our todos, to our `<Dashboard />` component as a prop.
 
 Here's the code:
 
 ```js
-  render() {
-    return (
-      <div className="App">
-        <h1>Welcome to React Fire Todos</h1>
-            <Dashboard
-              text={this.state.text}
-              todos={this.state.todos}
-              handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit} 
-            />
-      </div>
-    );
-  }
+render() {
+  return (
+    <div className="App">
+      <h1>Welcome to React Fire Todos</h1>
+          <Dashboard
+            text={this.state.text}
+            todos={this.state.todos}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit} 
+          />
+    </div>
+  );
+}
 ```
 
-### Step Ten - Print Data From State Array in `Dashboard.js 
+<hr>
+
+### Step Ten - Print Data From State Array in `<Dashboard />` Component 
 
 Now we can iterate our state array using JavaScript’s `.map()` to transform it’s elements into JSX `<p>` elements. 
 
@@ -777,6 +780,7 @@ Here's the code:
 
 ```js
 // Inside of Dashboard.js
+
 import React from 'react'
 
 const Dashboard = props => (
@@ -786,6 +790,96 @@ const Dashboard = props => (
             {
                 props.todos.map(todo => (
                     <p key={todo.id}>{todo.text}</p>
+                ))
+            }
+        </div>
+        <form onSubmit={props.handleSubmit}>
+            <input 
+            value={props.text} 
+            onChange={props.handleChange}
+            />
+            <button>Add Todo</button>
+        </form>
+    </div>
+)
+
+export default Dashboard
+```
+
+<hr>
+
+### Step Eleven - Create a Method to Remove Todos
+
+Let’s set up a method inside of `App.js` to remove a todo item based on it’s id. In case you're wondering how we'll manage state, don't worry! Once an item is removed, our Firebase subscription will automatically update state for us. :smiley:
+
+Here's the code:
+
+```js
+// Inside of App.js
+
+handleRemove = todoId => {
+  firebase.database().ref(`todos/${todoId}`)
+  .remove()
+  .then(() => console.log("Data Removed Successfully"))
+  .catch(error => { 
+      console.log("Something Went Wrong", error)
+   })
+}
+```
+
+<hr>
+
+### Step Twelve - Pass `handleRemove` to `<Dashboard />` Component
+
+We'll use our `handleRemove` method in our `<Dashboard />` component, so let's pass it down as a prop.
+
+Here's the code:
+
+```js
+// Inside of App.js
+
+render() {
+  return (
+    <div className="App">
+      <h1>Welcome to React Fire Todos</h1>
+          <Dashboard
+            text={this.state.text}
+            todos={this.state.todos}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit} 
+            handleRemove={this.handleRemove}
+          />
+    </div>
+  );
+}
+```
+
+<hr>
+
+### Step Thirteen - Finish Remove Todo Feature in `<Dashboard />` Component
+
+Let's finish up our simple “delete todo” feature inside our `<Dashboard />` component.
+For simplicity, we don't need to set up anything too fancy, just a simple `<span>` element
+configured to respond to click events. We'll reference our `handleRemove` method passing
+in the expected todo id as an argument.
+
+Here's the code:
+
+```js
+// Inside of Dashboard.js
+
+import React from 'react'
+
+const Dashboard = props => (
+    <div>
+        <h5>Here are your todos</h5>
+        <div>
+            {
+                props.todos.map(todo => (
+                    <p key={todo.id}>
+                        <span onClick={() => props.handleRemove(todo.id)}>
+                        X</span> {todo.text}
+                    </p>
                 ))
             }
         </div>
