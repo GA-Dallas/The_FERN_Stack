@@ -958,3 +958,55 @@ Here's what's happening:
 2. Then we call `firebase.auth()`, which exposes methods we can use on Firebase's `auth()` object; in this instance, we'll use `signInWithPopup`
 3.  `signInWithPopup` expects a provider as it's argument, so we'll pass that in.
 4.  A `Promise` gets returned, which we can handle with JavaScript's `.then()` or `.catch()`
+
+<hr>
+
+### Setup Auth State Subscription
+
+Let’s set up an auth state subscription to actively check if a user has been authenticated based on authentication state.
+
+
+Here's the code:
+
+```js
+// Inside of App.js
+
+  componentDidMount(){
+    firebase.database().ref('todos')
+    .on('value', snapshot => {
+      const newStateArray = []
+      snapshot.forEach(childSnapshot => {
+        newStateArray.push({
+          id: childSnapshot.key,
+          ...childSnapshot.val()
+        })
+      })
+      this.setState({ todos: newStateArray })
+    })
+
+    /* Here's where we setup our Auth State Subscription.
+     * We can use an if else statement or a ternary expression
+     * to conditionally set component state based on 
+     * Authentication state.
+     */
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+      if(firebaseUser){
+        this.setState({
+          user: firebaseUser.displayName,
+          isAuthenticated: true
+        })
+      } else {
+        this.setState({
+          user: null,
+          isAuthenticated: false
+        })
+      }
+    })
+  }
+```
+
+This is what's happening:
+
+1. Just like for our `Firebase RTDB` subscription, the `onAuthStateChanged()` method, when called, sets up a subscription.
+2. Anytime a change is detected, `onAuthStateChanged()` will return our authenticated user, or `null` depending on auth state respectively.
+3. We can then change component state using an if statement or ternary expression like in this example above
