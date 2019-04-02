@@ -929,6 +929,7 @@ First we need to setup our `Firebase` project to allow us to use `Google Login`
 <hr>
 
 
+
 Here's the code:
 
 ```js
