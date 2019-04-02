@@ -766,3 +766,38 @@ Here's the code:
     );
   }
 ```
+
+### Step Ten - Print Data From State Array in `Dashboard.js 
+
+Now we can iterate our state array using JavaScript’s `.map()` to transform it’s elements into JSX `<p>` elements. 
+
+**NOTE:** _Don't forget to add your key prop!_ :sunglasses:
+
+Here's the code:
+
+```js
+// Inside of Dashboard.js
+import React from 'react'
+
+const Dashboard = props => (
+    <div>
+        <h5>Here are your todos</h5>
+        <div>
+            {
+                props.todos.map(todo => (
+                    <p key={todo.id}>{todo.text}</p>
+                ))
+            }
+        </div>
+        <form onSubmit={props.handleSubmit}>
+            <input 
+            value={props.text} 
+            onChange={props.handleChange}
+            />
+            <button>Add Todo</button>
+        </form>
+    </div>
+)
+
+export default Dashboard
+```
