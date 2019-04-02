@@ -932,11 +932,13 @@ First we need to setup our `Firebase` project to allow us to use `Google Login`
 
 Let’s set up a feature to allow a user to sign in with Google. 
 
-**NOTE:** This workflow is based off the Firebase SDK documentation.
+**NOTE:** This workflow is adapted from the [Firebase SDK workflow documentation](https://firebase.google.com/docs/auth/web/google-signin?authuser=0).
 
 Here's the code:
 
 ```js
+// Inside of App.js
+
   handleLogin = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider)
@@ -949,3 +951,10 @@ Here's the code:
   }
 
 ```
+
+Here's what's happening:
+
+1. To Use the Google Sign-In Method, we instantiate a new instance of the `GoogleAuthProvider` from the `firebase.auth` object, and assign what gets return to a new variable we'll call `provider`
+2. Then we call `firebase.auth()`, which exposes methods we can use on Firebase's `auth()` object; in this instance, we'll use `signInWithPopup`
+3.  `signInWithPopup` expects a provider as it's argument, so we'll pass that in.
+4.  A `Promise` gets returned, which we can handle with JavaScript's `.then()` or `.catch()`
