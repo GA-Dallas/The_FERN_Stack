@@ -80,37 +80,37 @@ It's the moment we've all been waiting for! It's time to set up Google Firebase!
 
 - Go to: [https://firebase.google.com/](https://firebase.google.com/)
 
-### Step One - "Sign In":
+### Step 1 - "Sign In":
 ![step one](repo_imgs/step_one.png)
 
-### Step Two - "Go to Console" or :"Get Started":
+### Step 2 - "Go to Console" or :"Get Started":
 ![step two](repo_imgs/step_two.png)
 
-### Step Three - "Add Project":
+### Step 3 - "Add Project":
 ![step three](repo_imgs/step_three.png)
 
-### Step Four - "Project Details - Name Your Project: React-Fire-Todos":
+### Step 4 - "Project Details - Name Your Project: React-Fire-Todos":
 ![step Four](repo_imgs/step_four.png)
 
-### Step Five - "Create Project and Continue":
+### Step 5 - "Create Project and Continue":
 ![step five](repo_imgs/step_five.png)
 
-### Step Six - "Begin Setup of RTDB"
+### Step 6 - "Begin Setup of RTDB"
 ![step six](repo_imgs/step_six.png)
 
-### Step Seven - "Setup RTDB Continued"
+### Step 7 - "Setup RTDB Continued"
 ![step seven](repo_imgs/step_seven.png)
 
-### Step Eight - "Setup RTDB Continued"
+### Step 8 - "Setup RTDB Continued"
 ![step eight](repo_imgs/step_eight.png)
 
-### Step Nine - "How to Add Firebase to React"
+### Step 9 - "How to Add Firebase to React"
 ![step nine](repo_imgs/step_nine.png)
 
-### Step Ten - "How to Add Firebase to React (continued)"
+### Step 10 - "How to Add Firebase to React (continued)"
 ![step ten](repo_imgs/step_ten.png)
 
-### Step Eleven - "How to Add Firebase to React (continued)"
+### Step 11 - "How to Add Firebase to React (continued)"
 ![step eleven](repo_imgs/step_eleven.png)
 
 <hr>
@@ -516,7 +516,7 @@ That said, let's build a simple todo app using React and Firebase!
 
 <hr>
 
-### Step One - Setup Parent Component State:
+### Step 1 - Setup Parent Component State:
 
 For simplicity, we'll use `App.js` that gets generated from `create-react-app` as our parent component, let's go there now.
 
@@ -545,7 +545,7 @@ class App extends Component {
 
 <hr>
 
-### Step Two - Create a Method to Update Component State
+### Step 2 - Create a Method to Update Component State
 
 To handle form data from `Dashboard.js` as React intended, we’ll Create a `handleChange()` method inside of `App.js` to update it’s state `text` property based on user input.
 
@@ -576,7 +576,7 @@ class App extends Component {
 
 <hr>
 
-### Step Three - Pass Methods and State as Props
+### Step 3 - Pass Methods and State as Props
 
 To use `handleChange()` and `text` state property in the appropriate place, we’ll pass them as props to our `<Dashboard />` component.
 
@@ -600,7 +600,7 @@ render() {
 
 <hr>
 
-### Step Four - Wire Up Input Element in `<Dashboard />` Component
+### Step 4 - Wire Up Input Element in `<Dashboard />` Component
 
 From inside of `Dashboard.js`, we can reference our `text` and `handleChange` members from `props` using `value` and `onChange`.
 
@@ -634,7 +634,7 @@ export default Dashboard
 
 <hr>
 
-### Step Five - Create a Submit Handler Method in `App.js`
+### Step 5 - Create a Submit Handler Method in `App.js`
 
 Now let’s create a submit handler method for our form element.
 
@@ -659,7 +659,7 @@ handleSubmit = e => {
 
 <hr>
 
-### Step Six - Pass Submit Handler as Prop to `<Dashboard />` Component
+### Step 6 - Pass Submit Handler as Prop to `<Dashboard />` Component
 
 In `App.js`, Just as we’ve done with state and our change handler, we’ll pass our submit handler as a prop to our `Dashboard` component.
 
@@ -684,7 +684,7 @@ render() {
 
 <hr>
 
-### Step Seven - Final Setup of Form Element
+### Step 7 - Final Setup of Form Element
 
 Now we can reference the `handleSubmit` event handler in our form using `onSubmit`
 
@@ -718,7 +718,7 @@ export default Dashboard
 
 <hr>
 
-### Step Eight - Setup of Data Fetch Subscription using React Lifecycle Method
+### Step 8 - Setup of Data Fetch Subscription using React Lifecycle Method
 
 Now, inside of `App.js`, let’s take advantage of the `componentDidMount()` lifecycle method to initialize a subscription once the component mounts. As we learned earlier, this subscription will receive new data and update our state array anytime a change is detected.
 
@@ -746,7 +746,7 @@ componentDidMount(){
 
 <hr>
 
-### Step Nine - Pass State Array to `<Dashboard />` Component as a Prop
+### Step 9 - Pass State Array to `<Dashboard />` Component as a Prop
 
 We'll use our `<Dashboard />` component to render our list of todos, so let's pass our state array, which will contain our todos, to our `<Dashboard />` component as a prop.
 
@@ -770,7 +770,7 @@ render() {
 
 <hr>
 
-### Step Ten - Print Data From State Array in `<Dashboard />` Component 
+### Step 10 - Print Data From State Array in `<Dashboard />` Component 
 
 Now we can iterate our state array using JavaScript’s `.map()` to transform it’s elements into JSX `<p>` elements. 
 
@@ -808,7 +808,7 @@ export default Dashboard
 
 <hr>
 
-### Step Eleven - Create a Method to Remove Todos
+### Step 11 - Create a Method to Remove Todos
 
 Let’s set up a method inside of `App.js` to remove a todo item based on it’s id. In case you're wondering how we'll manage state, don't worry! Once an item is removed, our Firebase subscription will automatically update state for us. :smiley:
 
@@ -829,7 +829,7 @@ handleRemove = todoId => {
 
 <hr>
 
-### Step Twelve - Pass `handleRemove` to `<Dashboard />` Component
+### Step 12 - Pass `handleRemove` to `<Dashboard />` Component
 
 We'll use our `handleRemove` method in our `<Dashboard />` component, so let's pass it down as a prop.
 
@@ -856,7 +856,7 @@ render() {
 
 <hr>
 
-### Step Thirteen - Finish Remove Todo Feature in `<Dashboard />` Component
+### Step 13 - Finish Remove Todo Feature in `<Dashboard />` Component
 
 Let's finish up our simple “delete todo” feature inside our `<Dashboard />` component.
 For simplicity, we don't need to set up anything too fancy, just a simple `<span>` element
@@ -898,7 +898,7 @@ export default Dashboard
 
 <hr>
 
-### Step Fourteen - Simple Firebase Auth
+### Step 14 - Simple Firebase Auth
 
 Now it's time to make some sparks fly! We're going to use the `Firebase SDK` for managing authentication state and give our user a simple popup window to "login" using their google account.
 
@@ -919,6 +919,15 @@ First we need to setup our `Firebase` project to allow us to use `Google Login`
 #### Click "Enable", enter your email, then click "Save"
 
 ![setup_auth03](repo_imgs/setup_auth03.png)
+
+#### Verify Google Sign-in is "Enabled" in green
+
+![setup_auth04](repo_imgs/auth_setup04.png)
+
+#### Summary - After the last step, we're fully ready to use Firebase Auth
+
+<hr>
+
 
 Here's the code:
 
