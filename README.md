@@ -574,3 +574,84 @@ class App extends Component {
 
 ### Step Three - Pass Methods and State as Props
 
+To use `handleChange()` and `text` state property in the appropriate place, we’ll pass them as props to our `<Dashboard />` component:
+
+```js
+  render() {
+    return (
+      <div className="App">
+        <h1>Welcome to React Fire Todos</h1>
+            <Dashboard
+              text={this.state.text}
+              handleChange={this.handleChange} 
+            />
+      </div>
+    );
+  }
+```
+
+### Step Four - Wire Up Input Element in `Dashboard.js`
+
+From inside of `Dashboard.js`, we can reference our `text` and `handleChange` members from `props` using `value` and `onChange`:
+
+```js
+
+import React from 'react'
+
+const Dashboard = (props) => (
+    <div>
+        <h5>Here are your todos</h5>
+        <div>
+            {
+                /* We'll Print Our Todos here*/
+            }
+        </div>
+        <form onSubmit={props.handleSubmit}>
+            <input 
+            value={props.text} 
+            onChange={props.handleChange}
+            />
+            <button>Add Todo</button>
+        </form>
+    </div>
+)
+
+export default Dashboard
+```
+### Step Five - Create a Submit Handler Method in `App.js`
+
+Now let’s create a submit handler method for our form element.
+
+```js
+handleSubmit = e => {
+  e.preventDefault()
+  firebase.database().ref('todos')
+  .push({ text: this.state.text })
+  .then(() => {
+    this.setState({ text: "" })
+    console.log("Data Created Successfully")
+  })
+  .catch(error => {
+      console.log("Something Went Wrong: ", error)
+   })
+}
+```
+
+### Step Six - Pass Submit Handler as Prop to `Dashboard.js`
+
+In App.js, Just as we’ve done with state and our change handler, we’ll pass our submit handler as a prop to our Dashboard component.
+
+```js
+  render() {
+    return (
+      <div className="App">
+        <h1>Welcome to React Fire Todos</h1>
+            <Dashboard
+              text={this.state.text}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit} 
+            />
+      </div>
+    );
+  }
+```
