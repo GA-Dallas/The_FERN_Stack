@@ -928,11 +928,24 @@ First we need to setup our `Firebase` project to allow us to use `Google Login`
 
 <hr>
 
+### Setup Login Method
 
+Let’s set up a feature to allow a user to sign in with Google. 
+
+**NOTE:** This workflow is based off the Firebase SDK documentation.
 
 Here's the code:
 
 ```js
-
+  handleLogin = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+    .then(() => {
+      console.log("User Logged In Successfully")
+    })
+    .catch(error => {
+      console.log("Something Went Wrong: ", error.message)
+    })
+  }
 
 ```
