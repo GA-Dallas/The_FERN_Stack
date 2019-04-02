@@ -924,7 +924,7 @@ First we need to setup our `Firebase` project to allow us to use `Google Login`
 
 ![setup_auth04](repo_imgs/auth_setup04.png)
 
-#### Summary - After the last step, we're fully ready to use Firebase Auth
+#### Summary - We are fully ready to use Firebase Auth :tada:
 
 <hr>
 
@@ -954,7 +954,7 @@ Here's the code:
 
 Here's what's happening:
 
-1. To Use the Google Sign-In Method, we instantiate a new instance of the `GoogleAuthProvider` from the `firebase.auth` object, and assign what gets return to a new variable we'll call `provider`
+1. To Use the Google Sign-In Method, we instantiate a new instance of the `GoogleAuthProvider` from the `firebase.auth` object, and assign what gets returned to a new variable we'll call `provider`
 2. Then we call `firebase.auth()`, which exposes methods we can use on Firebase's `auth()` object; in this instance, we'll use `signInWithPopup`
 3.  `signInWithPopup` expects a provider as it's argument, so we'll pass that in.
 4.  A `Promise` gets returned, which we can handle with JavaScript's `.then()` or `.catch()`
