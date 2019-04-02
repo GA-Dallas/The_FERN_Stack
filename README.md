@@ -895,3 +895,24 @@ const Dashboard = props => (
 
 export default Dashboard
 ```
+
+### Step Fourteen - Simple Firebase Auth
+
+Now it's time to make some sparks fly! We're going to use the `Firebase SDK` for managing authentication state and give our user a simple popup window to "login" using their google account.
+
+Now, depending on Authentication state, we can change our componenent state, which will in turn allow us to manage what our user can see.
+
+In this lesson, we'll just conditionally render components.
+
+First we need to setup our `Firebase` project to allow us to use `Google Login`
+
+#### From the "Project Overview" Screen, Click Authentication
+
+![setup_auth01](repo_imgs/setup_auth01.png)
+
+Here's the code:
+
+```js
+
+
+```
