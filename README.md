@@ -76,42 +76,41 @@ This is where many people get confused when they hear of Google Firebase for the
 
 It's the moment we've all been waiting for! It's time to set up Google Firebase!
 
-**The First Step to Get Started is to "Signup For Google Firebase"**
+**The First Step to Get Started is to "Signup For Google Firebase" and "signin"**
 
 - Go to: [https://firebase.google.com/](https://firebase.google.com/)
 
-### Step 1 - "Sign In":
-![step one](repo_imgs/step_one.png)
 
-### Step 2 - "Go to Console" or :"Get Started":
-![step two](repo_imgs/step_two.png)
+#### Step 1 - Click "Get Started":
+![step 1](repo_imgs/step_one.png)
 
-### Step 3 - "Add Project":
-![step three](repo_imgs/step_three.png)
+#### Step 2 - Click "Add Project":
+![step 2](repo_imgs/step_two.png)
 
-### Step 4 - "Project Details - Name Your Project: React-Fire-Todos":
-![step Four](repo_imgs/step_four.png)
+#### Step 3 - "Project Details - Name Your Project: React-Fire-Todos" Then Click Create Project:
+![step 3](repo_imgs/step_three.png)
 
-### Step 5 - "Create Project and Continue":
-![step five](repo_imgs/step_five.png)
+#### Click Continue
+![step 3.2](repo_imgs/step_three-2.png)
 
-### Step 6 - "Begin Setup of RTDB"
-![step six](repo_imgs/step_six.png)
+#### Step 4 - Click "Database"
+![step 4](repo_imgs/step_four.png)
 
-### Step 7 - "Setup RTDB Continued"
-![step seven](repo_imgs/step_seven.png)
+#### Step 5 - Scoll Down Until You See "Choose Realtime Database" Click "Create Database"
+![step 5](repo_imgs/step_five.png)
 
-### Step 8 - "Setup RTDB Continued"
-![step eight](repo_imgs/step_eight.png)
+#### Step 6 - Select "Start in Test Mode" and Then Click "Enable"
+![step 6](repo_imgs/step_six.png)
 
-### Step 9 - "How to Add Firebase to React"
-![step nine](repo_imgs/step_nine.png)
+#### Step 7 - From the RTDB Dashboard, Click the Gear Widget Then "Project Settings"
+![step 7](repo_imgs/step_seven.png)
 
-### Step 10 - "How to Add Firebase to React (continued)"
-![step ten](repo_imgs/step_ten.png)
+#### Step 8 - Scroll to the Bottom and Click the `</>` Icon
+![step 8](repo_imgs/step_eight.png)
 
-### Step 11 - "How to Add Firebase to React (continued)"
-![step eleven](repo_imgs/step_eleven.png)
+#### Step 9 - Now We Have Access to Our Config Code
+- We'll use this later
+![step 9](repo_imgs/step_nine.png)
 
 <hr>
 
@@ -566,7 +565,7 @@ class App extends Component {
     }
 
     handleChange = e => {
-        this.setState({ text: e.target.value })
+        this.setState({ [e.target.name]: e.target.value })
     }
     
     render(){
@@ -1140,8 +1139,12 @@ const Dashboard = props => (
 
 <hr>
 
-### Conclusion
+### Conclusion - At this point, we should have:
+1. Setup a Google Firebase Project
+2. Use the Google Firebase Real Time Database (RTDB) and Authentication
+3. Learn how to reference Google Firebase documentation
 
+...and most importantly, we should now have a preliminary understanding of Google Firebase and how to use it with React
 
 ### References:
 - [Google Firebase Auth](https://firebase.google.com/docs/auth/web/google-signin)
