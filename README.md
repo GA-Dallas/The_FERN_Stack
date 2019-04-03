@@ -78,7 +78,7 @@ It's the moment we've all been waiting for! It's time to set up Google Firebase!
 
 **The First Step to Get Started is to "Signup For Google Firebase" and "signin"**
 
-- Go to: [https://firebase.google.com/](https://firebase.google.com/)
+Go to: [https://firebase.google.com/](https://firebase.google.com/)
 
 
 #### Step 1 - Click "Get Started":
@@ -108,9 +108,7 @@ It's the moment we've all been waiting for! It's time to set up Google Firebase!
 #### Step 8 - Scroll to the Bottom and Click the `</>` Icon
 ![step 8](repo_imgs/step_eight.png)
 
-#### Step 9 - Now We Have Access to Our Config Code
-
-**We'll use this later**
+#### Step 9 - Now We Have Access to Our Config Code - We'll Use This Later
 
 ![step 9](repo_imgs/step_nine.png)
 
@@ -119,9 +117,11 @@ It's the moment we've all been waiting for! It's time to set up Google Firebase!
 ## Setup Our React Frontend
 ![react logo](repo_imgs/react_logo.png)
 
-It's time to make sparks fly! Assuming you have the `create-react-app` build tool installed. Navigate to your Desktop `cd ~/Desktop` and then run `create-react-app react-fire-todos` to build our react application and install base dependencies.
+It's time to make sparks fly! 
 
-Once our app finished building, we'll need to clean it up and add some files to prepare it for Firebase Integration.
+Assuming you have the `create-react-app` build tool installed. Navigate to a place on your machine where you can work and then run `create-react-app react-fire-todos` to build our react application and install base dependencies.
+
+Once the app finishes building, we'll need to clean it up and add some files to prepare for Firebase Integration.
 
 <hr>
 
@@ -165,9 +165,11 @@ You're directory/file structure should look like this once you're done:
 
 ### Step 3 - Enter Google Firebase
 
-Now we're ready to install Google Firebase! From the root of your project, go ahead and run the command `npm i firebase` (the `i` is short for install :wink:)
+Now we're ready to install Google Firebase! 
 
-Then, while that's installing, add the following code to `./src/firebaseConfig/index.js`
+From the root of your project, go ahead and run the command `npm i firebase`.
+
+Then, while that's installing, add the following code to `./src/firebaseConfig/index.js`.
 
 ```js
 import firebase from 'firebase/app'
@@ -188,11 +190,11 @@ firebase.initializeApp(config)
 
 export default firebase
 ```
-**Please NOTE:** For the simplicity of this lesson, we'll add the literal values for each respective key in our config object...i.e. `apiKey`, `authDomain`...etc
+**Please NOTE:** For the simplicity of this lesson, we'll add the literal values for each respective key in our config object...i.e. `apiKey`, `authDomain`...etc.
 
 :warning: **DO NOT PUSH TO GITHUB!** :warning:
 
-Doing so will run the risk of your project's config access stolen by bad actors
+Doing so will run the risk of your project's config access stolen by bad actors.
 
 
 <img src="https://media.giphy.com/media/xcnMwNunTCn9m/giphy.gif" />
@@ -204,9 +206,10 @@ Doing so will run the risk of your project's config access stolen by bad actors
 Now it's time to begin creating components for our project!
 
 The architecture of this project will be fairly straightforward. 
-We'll have one parent component, which will be our "smart component", this component will be in charge of passing data/methods down to our stateless functional components.
+We'll have one parent component, which will be our "smart component", this component will be in charge of passing data/methods down to our stateless functional components, or "presentational" components if you will.
 
-Let's get started by creating a directory inside of `./src` named `components`. Inside of `./src/components/` create two files:
+Create a directory inside of `./src` named `components`. 
+Inside of `./src/components/` create two files:
 
 - `Dashboard.js`
 - `Login.js`
@@ -219,7 +222,9 @@ Once you're done, your directory/file structure should look like this:
 
 ### Step 5 - Add boilerplate code to component files
 
-For your `Dashboard.js` component file, we'll make a stateless functional component. Go ahead and add this code:
+For your `Dashboard.js` component file, we'll make a stateless functional component. 
+
+Go ahead and add this code:
 
 ```js
 import React from 'react'
@@ -242,7 +247,9 @@ const Dashboard = props => (
 export default Dashboard
 ```
 
-For the `Login.js` component file, we'll make a stateless functional component for it as well. Go ahead and add the following code to that file:
+For the `Login.js` component file, we'll make a stateless functional component for it as well. 
+
+Go ahead and add the following code to that file:
 
 ```js
 import React from 'react'
@@ -282,7 +289,7 @@ export default App
 
 ## Firebase 101
 
-For this part, we'll spend a few minutes getting familiar with the basic CRUD (**CREATE READ UPDATE DELETE**) operations of the Google Firebase RTDB (Real Time Database)
+For this part, we'll spend a few minutes getting familiar with the basic CRUD (**CREATE READ UPDATE DELETE**) operations of the Google Firebase RTDB (Real Time Database).
 
 <hr>
 
@@ -519,7 +526,7 @@ That said, let's build a simple todo app using React and Firebase!
 
 ### Step 1 - Setup Parent Component State:
 
-For simplicity, we'll use `App.js` that gets generated from `create-react-app` as our parent component, let's go there now.
+For simplicity, we'll use `App.js` as our parent component.
 
 Here's the code:
 
@@ -541,7 +548,7 @@ class App extends Component {
 ```
 1. We'll use the property initializer syntax for cleanliness
 2. We need a `text` state property to store input data from our form
-3. Then we'll store a collection of todo objects inside of a `todos` array property
+3. We'll store a collection of todo objects inside of a `todos` array property
 4. Later on we'll explore how firebase handles authentication, so we'll setup a properties to store data based on authentication state.
 
 <hr>
@@ -662,7 +669,7 @@ handleSubmit = e => {
 
 ### Step 6 - Pass Submit Handler as Prop to `<Dashboard />` Component
 
-In `App.js`, Just as we’ve done with state and our change handler, we’ll pass our submit handler as a prop to our `Dashboard` component.
+In `App.js`, Just as we’ve done with state and our `handleChange` event handler, we’ll pass our submit handler as a prop to our `<Dashboard />` component.
 
 Here's the code:
 
@@ -721,7 +728,9 @@ export default Dashboard
 
 ### Step 8 - Setup of Data Fetch Subscription using React Lifecycle Method
 
-Now, inside of `App.js`, let’s take advantage of the `componentDidMount()` lifecycle method to initialize a subscription once the component mounts. As we learned earlier, this subscription will receive new data and update our state array anytime a change is detected.
+Now, inside of `App.js`, let’s take advantage of the `componentDidMount()` lifecycle method to initialize a subscription once the component mounts. 
+
+As we learned earlier, this subscription will receive new data and update our state array anytime a change is detected.
 
 
 Here's the code:
@@ -1149,6 +1158,7 @@ const Dashboard = props => (
 ...and most importantly, we should now have a preliminary understanding of Google Firebase and how to use it with React
 
 ### References:
+- [Google Firebase](https://firebase.google.com/)
 - [Google Firebase Auth](https://firebase.google.com/docs/auth/web/google-signin)
 - [Google Firebase Database](https://firebase.google.com/docs/reference/js/firebase.database.Reference)
   
