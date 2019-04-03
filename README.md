@@ -1015,6 +1015,8 @@ This is what's happening:
 
 We’ll keep our user flow simple by conditionally rendering our login button based on component state. A ternary expression is an easy way to implement this. We’ll also pass our `handleLogin` method to our `<Login />`component as a prop.
 
+Here's the code:
+
 ```js
 // Inside of App.js
 
@@ -1040,3 +1042,108 @@ render() {
   );
 }
 ```
+
+<hr>
+
+### Finish Login Button 
+
+Now we can set up our login component to call the `handleLogin` method from props
+
+Here's the code:
+
+```js
+import React from 'react'
+
+const Login = props => (
+    <button onClick={props.handleLogin}>
+        Login With Google
+    </button>
+)
+
+export default Login
+```
+
+<hr>
+
+### Create a Logout Method
+
+Our last job for this app is to create a method to sign a user out. Once this action is resolved, our `onAuthStateChanged` subscription will trigger and change our component state.
+
+Here's the code:
+
+```js
+handleLogout = () => {
+  firebase.auth().signOut()
+  .then(() => {
+    console.log("User Logged Out Successfully")
+  })
+  .catch(error => {
+    console.log("Something Went Wrong: ", error.message)
+  })
+}
+```
+
+<hr>
+
+### Pass `handleLogout` As a Prop to `<Dashboard />`
+
+Let’s pass our `handleLogout` method as a prop to our `<Dashboard />` component so we can wire it to a logout button.
+
+Here's the code:
+
+```js
+// Inside of App.js
+
+render() {
+  return (
+    <div className="App">
+      <h1>Welcome to React Fire Todos</h1>
+      {
+          this.state.isAuthenticated ? 
+          <Dashboard
+            text={this.state.text}
+            todos={this.state.todos}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit} 
+            handleRemove={this.handleRemove}
+            handleLogout={this.handleLogout}
+          /> 
+          :
+          <Login
+            handleLogin={this.handleLogin} 
+          />
+      }
+    </div>
+  );
+}
+```
+<hr>
+
+### Create Logout Button
+
+Now we can create our logout button inside our Dashboard component and wire it to the handleLogout method we passed as a prop.
+
+
+Here's the code:
+
+```js
+import React from 'react'
+
+const Dashboard = props => (
+    <div>
+        <h5>Here are your todos</h5>
+        <button onClick={props.handleLogout}>Logout</button>
+        <div>
+....
+```
+
+
+<hr>
+
+### Conclusion
+
+
+### References:
+- [Google Firebase Auth](https://firebase.google.com/docs/auth/web/google-signin)
+- [Google Firebase Database](https://firebase.google.com/docs/reference/js/firebase.database.Reference)
+  
