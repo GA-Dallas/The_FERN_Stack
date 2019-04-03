@@ -109,7 +109,9 @@ It's the moment we've all been waiting for! It's time to set up Google Firebase!
 ![step 8](repo_imgs/step_eight.png)
 
 #### Step 9 - Now We Have Access to Our Config Code
-- We'll use this later
+
+**We'll use this later**
+
 ![step 9](repo_imgs/step_nine.png)
 
 <hr>
