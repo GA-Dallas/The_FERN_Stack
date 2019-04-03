@@ -103,7 +103,7 @@ It's the moment we've all been waiting for! It's time to set up Google Firebase!
 ![step 6](repo_imgs/step_six.png)
 
 #### Step 7 - From the RTDB Dashboard, Click the Gear Widget Then "Project Settings"
-![step 7](repo_imgs/step_seven.png)
+![step 7](repo_imgs/step_seven01.png)
 
 #### Step 8 - Scroll to the Bottom and Click the `</>` Icon
 ![step 8](repo_imgs/step_eight.png)
