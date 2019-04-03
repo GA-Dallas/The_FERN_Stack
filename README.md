@@ -990,19 +990,17 @@ Here's the code:
      * Authentication state.
      */
     firebase.auth().onAuthStateChanged(firebaseUser => {
-      if(firebaseUser){
+      firebaseUser ?
         this.setState({
           user: firebaseUser.displayName,
           isAuthenticated: true
         })
-      } else {
+        :
         this.setState({
           user: null,
           isAuthenticated: false
         })
-      }
     })
-  }
 ```
 
 This is what's happening:
@@ -1010,3 +1008,35 @@ This is what's happening:
 1. Just like for our `Firebase RTDB` subscription, the `onAuthStateChanged()` method, when called, sets up a subscription.
 2. Anytime a change is detected, `onAuthStateChanged()` will return our authenticated user, or `null` depending on auth state respectively.
 3. We can then change component state using an if statement or ternary expression like in this example above
+
+<hr>
+
+### Conditionally Render Components 
+
+We’ll keep our user flow simple by conditionally rendering our login button based on component state. A ternary expression is an easy way to implement this. We’ll also pass our `handleLogin` method to our `<Login />`component as a prop.
+
+```js
+// Inside of App.js
+
+render() {
+  return (
+    <div className="App">
+      <h1>Welcome to React Fire Todos</h1>
+      {
+          this.state.isAuthenticated ? 
+          <Dashboard
+            text={this.state.text}
+            todos={this.state.todos}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit} 
+            handleRemove={this.handleRemove}
+          /> 
+          :
+          <Login
+            handleLogin={this.handleLogin} 
+          />
+      }
+    </div>
+  );
+}
+```
