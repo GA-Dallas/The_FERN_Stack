@@ -616,7 +616,7 @@ class App extends Component {
 
 ### Step 3 - Pass Methods and State as Props
 
-To use `handleChange()` and `text` state property in the appropriate place, we’ll pass them as props to our `<Dashboard />` component.
+To use our `handleChange()` method and `text` state property, we’ll pass them as props to our `<Dashboard />` component.
 
 Here's the code:
 
