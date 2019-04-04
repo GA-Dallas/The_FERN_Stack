@@ -1,5 +1,9 @@
 # <img src="https://avatars2.githubusercontent.com/u/42252722?s=100&u=82447676189516e243e244d3f949169c0e91583b&v=4" /> The FRN Stack
 
+|Created By | Role | Last Update | Email |
+|:---------:|:----:|:-----------:|:-----:|
+| Daniel Scott | SEI Lead Local Instructor - Dallas Connected Classroom | 04/03/2019 | daniel.scott@generalassemb.ly |
+
 ![react meets firebase](repo_imgs/react_meets_firebase_wht.png)
 For this lesson, we'll look at a secretly popular tech stack known at the FRN stack (Firebase, ReactJS, and NodeJS). 
 
