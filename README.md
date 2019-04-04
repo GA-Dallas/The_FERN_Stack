@@ -547,6 +547,8 @@ One of the best ways to learn a new skill/technology is by incorporating them in
 
 That said, let's build a simple todo app using React and Firebase!
 
+We'll keep it simple, no additional styling, no React Router, just pure React and Firebase.
+
 "Todo" this, we'll work in steps, let's get started:
 
 <hr>
@@ -558,6 +560,7 @@ For simplicity, we'll use `App.js` as our parent component.
 Here's the code:
 
 ```js
+
 // Inside of App.js
 
 class App extends Component {
@@ -573,9 +576,9 @@ class App extends Component {
         ...
  
 ```
-1. We'll use the property initializer syntax for cleanliness
+1. We'll use property initializer syntax for cleanliness
 2. We need a `text` state property to store input data from our form
-3. We'll store a collection of todo objects inside of a `todos` array property
+3. We'll store a collection of todo objects inside a `todos` array property
 4. Later on we'll explore how firebase handles authentication, so we'll setup a properties to store data based on authentication state.
 
 <hr>
