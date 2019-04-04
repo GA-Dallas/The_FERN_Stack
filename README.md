@@ -203,14 +203,22 @@ firebase.initializeApp(config)
 
 export default firebase
 ```
-**Please NOTE:** For the simplicity of this lesson, we'll add the literal values for each respective key in our config object...i.e. `apiKey`, `authDomain`...etc.
+**Please NOTE:** For the simplicity of this lesson, we'll write our actual keys/credentials in this file, however...
+
+:warning: **DO NOT PUSH TO GITHUB** :warning:.
 
 :warning: **DO NOT PUSH TO GITHUB!** :warning:
+:warning: **DO NOT PUSH TO GITHUB!** :warning:
+:warning: **DO NOT PUSH TO GITHUB!** :warning:
+:warning: **DO NOT PUSH TO GITHUB!** :warning:
+:warning: **DO NOT PUSH TO GITHUB!** :warning:
 
-Doing so will run the risk of your project's config access stolen by bad actors.
+Some of you will probably do this anyways ... but you've been warned
+... because doing so will run the risk of your credentials being stolen by bad actors.
 
 
 <img src="https://media.giphy.com/media/xcnMwNunTCn9m/giphy.gif" />
+
 
 <hr>
 
@@ -218,12 +226,12 @@ Doing so will run the risk of your project's config access stolen by bad actors.
 
 Now it's time to begin creating components for our project!
 
-The architecture of this project will be fairly straightforward. 
-We'll have one parent component, which will be our "smart component", this component will be in charge of passing data/methods down to our stateless functional components, or "presentational" components if you will.
+The architecture of this project is fairly straightforward. 
+We'll have one parent "smart component", this component is charged with passing certain members down to our stateless functional components as props ... i.e. component state and methods.
 
-Create a directory inside of `./src` named `components`. 
+Create a directory named `components` inside of `./src`. 
+
 Inside of `./src/components/` create two files:
-
 - `Dashboard.js`
 - `Login.js`
 
@@ -235,11 +243,13 @@ Once you're done, your directory/file structure should look like this:
 
 ### Step 5 - Add boilerplate code to component files
 
-For your `Dashboard.js` component file, we'll make a stateless functional component. 
+For your `Dashboard.js` file, we'll write a stateless functional component. 
 
 Go ahead and add this code:
 
 ```js
+// Inside of Dashboard.js
+
 import React from 'react'
 
 const Dashboard = props => (
@@ -260,11 +270,13 @@ const Dashboard = props => (
 export default Dashboard
 ```
 
-For the `Login.js` component file, we'll make a stateless functional component for it as well. 
+For the `Login.js` file, we'll write a stateless functional component in it as well. 
 
 Go ahead and add the following code to that file:
 
 ```js
+// Inside of Login.js
+
 import React from 'react'
 
 const Login = props => (
@@ -277,6 +289,8 @@ export default Login
 Next, for our parent component, `App.js`, we'll add the following code:
 
 ```js
+// Inside of App.js
+
 import React, { Component } from 'react'
 import Dashboard from './components/Dashboard'
 import 'App.css'
@@ -315,6 +329,9 @@ For this part, we'll spend a few minutes getting familiar with the basic CRUD (*
 Once you're done, your code inside of `App.js` should look like this:
 
 ```js
+
+// Inside of App.js
+
 import React, { Component } from 'react'
 import Dashboard from './components/Dashboard'
 import firebase from './firebaseConfig'
@@ -340,7 +357,7 @@ class App extends Component {
 export default App
 ```
 
-If we haven't done so already, it would be a good idea to run our react frontend using it's included dev server. We can do that with the following command from the root directory of our project:
+If we haven't done so already, it would be a good idea to run our react front-end using it's included dev server. We can do that with the following command from the root directory of our project:
 
 `npm start`
 
@@ -348,7 +365,6 @@ Now, once our component mounts, we should see our Database object logged to the 
 
 ![console log](repo_imgs/console_log.png)
 
-**NOTE: We'll use the `componentDidMount()` method a lot in this section** :wink:
 
 <hr>
 
@@ -376,9 +392,8 @@ firebase.database().ref('todos')
 This is what's happening:
 
 1. First we expose our database object by calling [`.database()`](https://firebase.google.com/docs/reference/js/firebase.database) on `firebase`
-2. Then we have access to a method called [`.ref()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference#ref), which allows us to reference a key inside our RTDB; it will be created if it doesn't exist 
-   - Think of it as a reference to a collection inside a document-based database
-3. Now that we've referenced the location where our data belongs, we can pass our data to another method called [`.set()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#set), this method writes data to the the referenced database location, and will also overwrite any data at this location and all child locations
+2. Then we have access to a method called [`.ref()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference#ref), which allows us to reference a "collection" location inside our RTDB; it will be created if it doesn't exist 
+3. Now that we've referenced the location where our data belongs, we can pass our data to a method called [`.set()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#set), this method writes data to the the referenced database location, and will also overwrite any data at this location and all child locations
 4. According to the [firebase documentation](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#set), [`.set()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#set) returns a promise, so we can handle either case of it's outcome with [JavaScript's `.then()` or `.catch()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 5. In this case we can `console.log()` a message
 
@@ -404,7 +419,7 @@ firebase.database().ref('todos')
 
 This is what's happening:
 
-1. Now that we've referenced the location where our data belongs with `.ref('todos')`, we can pass our data to another method called [`.push()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference#push), this allows us to add a child key to our `todos` key with a unique identifier as it's name and our data as it's value
+1. Now that we've referenced the location where our data belongs with `.ref('todos')`, we can pass our data to a method called [`.push()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference#push), this allows us to add a child key to our `todos` collection with a unique identifier as it's name and our data as it's value
    - Subsequent calls to `.push()` with data passed in will continue to add child keys to our `todos` key
 2. According to the [firebase documentation](https://firebase.google.com/docs/reference/js/firebase.database.Reference#push), [`.push()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference#push) returns a promise, so we can handle either case of it's outcome with [JavaScript's `.then()` or `.catch()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 3. In this case we can `console.log()` a message
@@ -416,7 +431,6 @@ This is what's happening:
 Let's see how reading data with the Firebase RTDB works.
 
 Here's the code:
-
 
 #### We can read a single piece of data by it's unique key once
 
