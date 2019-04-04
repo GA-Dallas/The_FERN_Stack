@@ -52,13 +52,15 @@ _“Firebase is your server, your API and your datastore."_
 
 ![who uses google firebase?](repo_imgs/who_uses_firebase.png)
 
-Ever since Google acquired Firebase in 2014, it's rise in popularity has skyrocked to where it is today. Google Firebase gets better each year with robust features for both web and mobile applications.
+Ever since Google acquired Firebase in 2014, it's rise in popularity has skyrocked to where it is today. 
 
-Many developers and companies have found tremendous value in this technology, which is why you probably recognize most of these brands!
+Since the Google acquisition, Firebase exploaded with robust features for both web and mobile applications.
+
+Many companies and their developers have found tremendous value in this technology, which is why you probably recognize most of these brands!
 
 ### Not Just A Database
 
-This is where many people get confused when they hear of Google Firebase for the first time. Although the Real Time Database is a core feature, it's just one of several services you can use from Google Firebase:
+When people hear "Google Firebase" for the first time, they often get confused thinking it's just a Database. Although the Real Time Database is a core feature, it's just one of several services you can use from Google Firebase:
 
 ![firebase services](repo_imgs/firebase_services.png)
 
@@ -68,13 +70,17 @@ This is where many people get confused when they hear of Google Firebase for the
 
 ### The Google Firebase Real Time Database (RTDB)
 - The Core Service That Put the Spotlight on Firebase
-- A Single JSON Object that allows up to 32 levels of Depth (We don't recommend nesting your data that deep though)
+- A Single JSON Object that allows up to 32 levels of Depth 
+  
+  (We don't recommend nesting your data that deep though)
 
 <hr>
 
 ## Setup Google Firebase
 
-It's the moment we've all been waiting for! It's time to set up Google Firebase!
+It's the moment we've all been waiting for! 
+
+It's time to set up Google Firebase!
 
 **The First Step to Get Started is to "Signup For Google Firebase" and "signin"**
 
@@ -82,35 +88,26 @@ Go to: [https://firebase.google.com/](https://firebase.google.com/)
 
 
 #### Step 1 - Click "Get Started":
-![step 1](repo_imgs/step_one.png)
+![fig 1](repo_imgs/fig_1.png)
 
 #### Step 2 - Click "Add Project":
-![step 2](repo_imgs/step_two.png)
+![fig 2](repo_imgs/fig_2.png)
 
-#### Step 3 - "Project Details - Name Your Project: React-Fire-Todos" Then Click Create Project:
-![step 3](repo_imgs/step_three.png)
+#### Step 3 - Complete Project Details and Name Your Project: React-Fire-Todos" Then Click "Create Project":
+![fig 3](repo_imgs/fig_3.png)
 
 #### Click Continue
-![step 3.2](repo_imgs/step_three-2.png)
+![fig 3.2](repo_imgs/fig_3_1.png)
 
 #### Step 4 - Click "Database"
-![step 4](repo_imgs/step_four.png)
+![fig 4](repo_imgs/fig_4.png)
 
 #### Step 5 - Scoll Down Until You See "Choose Realtime Database" Click "Create Database"
-![step 5](repo_imgs/step_five.png)
+![fig 5](repo_imgs/fig_5.png)
 
 #### Step 6 - Select "Start in Test Mode" and Then Click "Enable"
-![step 6](repo_imgs/step_six.png)
+![fig 6](repo_imgs/fig_6.png)
 
-#### Step 7 - From the RTDB Dashboard, Click the Gear Widget Then "Project Settings"
-![step 7](repo_imgs/step_seven01.png)
-
-#### Step 8 - Scroll to the Bottom and Click the `</>` Icon
-![step 8](repo_imgs/step_eight.png)
-
-#### Step 9 - Now We Have Access to Our Config Code - We'll Use This Later
-
-![step 9](repo_imgs/step_nine.png)
 
 <hr>
 
@@ -119,20 +116,24 @@ Go to: [https://firebase.google.com/](https://firebase.google.com/)
 
 It's time to make sparks fly! 
 
-Assuming you have the `create-react-app` build tool installed. Navigate to a place on your machine where you can work and then run `create-react-app react-fire-todos` to build our react application and install base dependencies.
+Assuming you have the `create-react-app` build tool installed. 
 
-Once the app finishes building, we'll need to clean it up and add some files to prepare for Firebase Integration.
+Navigate to a place on your machine where you can work and then run `create-react-app react-fire-todos` to build a react application and install base dependencies.
+
+Once the build finishes, we'll clean it up and add directories/files as we prepare for Firebase integration.
 
 <hr>
 
 ### Step 1 - Remove `logo.svg` and JSX from `App.js`
 
-- First we'll remove `logo.svg` inside of `./src/`
-- Then remove unnecessary JSX code from `App.js`
+- Remove `logo.svg` inside of `./src/`
+- Remove unnecessary JSX code from `App.js`
   
 Your `App.js` should look like this once you're done:
 
 ```js
+// Inside of App.js
+
 import React, { Component } from 'react'
 import 'App.css'
 
@@ -154,8 +155,8 @@ export default App
 
 ### Step 2 - Create config directory/file for Google Firebase
 
-- Inside of `./src/` create a directory named `firebaseConfig`
-- Then inside of `./src/firebaseConfig/`, create a file named `index.js`
+- Create a directory inside of `./src/` named `firebaseConfig`
+- Create a file named `index.js` inside of `./src/firebaseConfig/`
 
 You're directory/file structure should look like this once you're done:
 
@@ -169,7 +170,19 @@ Now we're ready to install Google Firebase!
 
 From the root of your project, go ahead and run the command `npm i firebase`.
 
-Then, while that's installing, add the following code to `./src/firebaseConfig/index.js`.
+Then, while that's installing, go back to the Google Firebase console for our config code:
+
+#### Step 1 - From the RTDB Dashboard, Click the Gear Widget Then "Project Settings"
+![fig 7](repo_imgs/fig_7.png)
+
+#### Step 2 - Scroll to the Bottom and Click the `</>` Icon
+![fig 8](repo_imgs/fig_8.png)
+
+#### Step 3 - Now We Have Access to Our Config Code 
+
+![fig 9](repo_imgs/fig_9.png)
+
+Copy the `config` object from the console to add to `./src/firebaseConfig/index.js` as shown below:
 
 ```js
 import firebase from 'firebase/app'
