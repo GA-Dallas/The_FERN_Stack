@@ -724,7 +724,7 @@ render() {
 
 ### Step 7 - Final Setup of Form Element
 
-Now we can reference the `handleSubmit` event handler in our form using `onSubmit`
+Now we can reference the `handleSubmit` event handler from props in our form using `onSubmit`
 
 Here's the code:
 
@@ -788,7 +788,9 @@ componentDidMount(){
 
 ### Step 9 - Pass State Array to `<Dashboard />` Component as a Prop
 
-We'll use our `<Dashboard />` component to render our list of todos, so let's pass our state array, which will contain our todos, to our `<Dashboard />` component as a prop.
+We'll use our `<Dashboard />` component to render our list of todos.
+
+So let's pass our todos state array to our `<Dashboard />` component as a prop.
 
 Here's the code:
 
@@ -850,7 +852,11 @@ export default Dashboard
 
 ### Step 11 - Create a Method to Remove Todos
 
-Let’s set up a method inside of `App.js` to remove a todo item based on it’s id. In case you're wondering how we'll manage state, don't worry! Once an item is removed, our Firebase subscription will automatically update state for us. :smiley:
+Let’s set up a method inside of `App.js` to remove a todo item based on it’s id. We can create a dynamic path string for `.ref()` using template strings.
+
+In case you're wondering how we'll manage state, don't worry! 
+
+Once an item is removed, our Firebase subscription will automatically update state for us. :smiley:
 
 Here's the code:
 
@@ -899,8 +905,10 @@ render() {
 ### Step 13 - Finish Remove Todo Feature in `<Dashboard />` Component
 
 Let's finish up our simple “delete todo” feature inside our `<Dashboard />` component.
-For simplicity, we don't need to set up anything too fancy, just a simple `<span>` element
-configured to respond to click events. We'll reference our `handleRemove` method passing
+
+For simplicity, we don't need to set up anything too fancy, just a simple `<span>` element configured to respond to click events. 
+
+We'll reference our `handleRemove` method passing
 in the expected todo id as an argument.
 
 Here's the code:
@@ -942,9 +950,9 @@ export default Dashboard
 
 Now it's time to make some sparks fly! We're going to use the `Firebase SDK` for managing authentication state and give our user a simple popup window to "login" using their google account.
 
-Now, depending on Authentication state, we can change our componenent state, which will in turn allow us to manage what our user can see.
+Now, depending on Authentication state, we can change component state, which in turn will allow us to manage what our user sees.
 
-In this lesson, we'll just conditionally render components.
+In this lesson, we'll conditionally render components based on authentication state.
 
 First we need to setup our `Firebase` project to allow us to use `Google Login`
 
@@ -996,7 +1004,7 @@ Here's what's happening:
 
 1. To Use the Google Sign-In Method, we instantiate a new instance of the `GoogleAuthProvider` from the `firebase.auth` object, and assign what gets returned to a new variable we'll call `provider`
 2. Then we call `firebase.auth()`, which exposes methods we can use on Firebase's `auth()` object; in this instance, we'll use `signInWithPopup`
-3.  `signInWithPopup` expects a provider as it's argument, so we'll pass that in.
+3. `signInWithPopup` expects a provider as it's argument, so we'll pass that in.
 4.  A `Promise` gets returned, which we can handle with JavaScript's `.then()` or `.catch()`
 
 <hr>
@@ -1053,7 +1061,11 @@ This is what's happening:
 
 ### Conditionally Render Components 
 
-We’ll keep our user flow simple by conditionally rendering our login button based on component state. A ternary expression is an easy way to implement this. We’ll also pass our `handleLogin` method to our `<Login />`component as a prop.
+We’ll keep our user flow simple by conditionally rendering our login button based on component state. 
+
+A ternary expression is an easy way to implement this. 
+
+We’ll also pass our `handleLogin` method to our `<Login />`component as a prop.
 
 Here's the code:
 
@@ -1087,7 +1099,7 @@ render() {
 
 ### Finish Login Button 
 
-Now we can set up our login component to call the `handleLogin` method from props
+Now we can set up our login component to call the `handleLogin` method from props.
 
 Here's the code:
 
@@ -1185,7 +1197,9 @@ const Dashboard = props => (
 2. Use the Google Firebase Real Time Database (RTDB) and Authentication
 3. Learn how to reference Google Firebase documentation
 
-...and most importantly, we should now have a preliminary understanding of Google Firebase and how to use it with React
+...and most importantly, we should now have a preliminary understanding of Google Firebase and how to use it with React.
+
+There are several items referenced above, but feel free to check out the higher-level references below:
 
 ### References:
 - [Google Firebase](https://firebase.google.com/)
