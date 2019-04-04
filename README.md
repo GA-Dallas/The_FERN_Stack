@@ -511,7 +511,7 @@ firebase.database().ref('todos/-Lb0H9NA_e32dvLg86OC')
 
 This is what's happening:
 
-1. First we reference a single piece of data we'd like to update
+1. First we reference a single piece of data we'd like to remove using `.ref()`, passing in a string path to our referenced data
 2. Then we call Firebase's [`.update()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#update) passing in the key along with it's updated value; Firebase handles the rest! :sunglasses:
 3. `.update()` is an extremely powerful Firebase method, so it's recommended to [check out the documentation](https://firebase.google.com/docs/reference/js/firebase.database.Reference?authuser=0#update) to fully grasp it's capabilities
 4. Just like many of the **CRUD** operations methods for the Firebase RTDB, `.update()` returns a promise we can pass to either `.then()` or `.catch()` depending on success or failure
@@ -535,7 +535,7 @@ firebase.database().ref('todos/-Lb0H9NA_e32dvLg86OC')
 
 Here's what's happening:
 
-1. First we reference a single piece of data we'd like to remove
+1. First we reference a single piece of data we'd like to remove using `.ref()`, passing in a string path to our referenced data
 2. Then we call Firebase's [`.remove()`](https://firebase.google.com/docs/reference/js/firebase.database.Reference#remove) method, which will "remove" the data at the referenced RTDB location
 3. Then we can handle the `Promise` that gets returned from calling `remove()` just as before using JavaScript's `.then()` and `.catch()`
 
