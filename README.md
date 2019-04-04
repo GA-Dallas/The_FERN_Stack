@@ -2,7 +2,7 @@
 
 |Created By | Role | Last Update | Email |
 |:---------:|:----:|:-----------:|:-----:|
-| Daniel Scott | SEI Lead Local Instructor - Dallas Connected Classroom | 04/03/2019 | daniel.scott@generalassemb.ly |
+| Daniel Scott | SEI Lead Local Instructor Dallas | 04/03/2019 | daniel.scott@generalassemb.ly |
 
 ![react meets firebase](repo_imgs/react_meets_firebase_wht.png)
 For this lesson, we'll look at a secretly popular tech stack known at the FRN stack (Firebase, ReactJS, and NodeJS). 
@@ -209,12 +209,21 @@ export default firebase
 ```
 **Please NOTE:** For the simplicity of this lesson, we'll write our actual keys/credentials in this file, however...
 
-:warning: **DO NOT PUSH TO GITHUB** :warning:.
+:warning: **DO NOT PUSH TO GITHUB** :warning:
+
 
 :warning: **DO NOT PUSH TO GITHUB!** :warning:
+
+
 :warning: **DO NOT PUSH TO GITHUB!** :warning:
+
+
 :warning: **DO NOT PUSH TO GITHUB!** :warning:
+
+
 :warning: **DO NOT PUSH TO GITHUB!** :warning:
+
+
 :warning: **DO NOT PUSH TO GITHUB!** :warning:
 
 Some of you will probably do this anyways ... but you've been warned
