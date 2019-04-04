@@ -273,7 +273,7 @@ const Dashboard = props => (
                 /* We'll print our todos here */
             }
             <form>
-                <input />
+                <input name="text"/>
                 <button>Add Todo</button>
             </form>
         </div>
