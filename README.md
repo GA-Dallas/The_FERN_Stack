@@ -685,7 +685,7 @@ export default Dashboard
 
 <hr>
 
-### Step 5 - Create a Submit Handler Method in `App.js`
+### Step 5 - Create a Submit Handler Method for `<App />` component
 
 Now let’s create a submit handler method for our form element.
 
@@ -712,7 +712,7 @@ handleSubmit = e => {
 
 ### Step 6 - Pass Submit Handler as Prop to `<Dashboard />` Component
 
-In `App.js`, Just as we’ve done with state and our `handleChange` event handler, we’ll pass our submit handler as a prop to our `<Dashboard />` component.
+In our `<App />` component, we’ll pass our submit handler as a prop to our `<Dashboard />` component.
 
 Here's the code:
 
