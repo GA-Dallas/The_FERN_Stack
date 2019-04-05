@@ -592,7 +592,7 @@ class App extends Component {
 1. We'll use property initializer syntax for cleanliness
 2. We need a `text` state property to store input data from our form
 3. We'll store a collection of todo objects inside a `todos` array property
-4. Later on we'll explore how firebase handles authentication, so we'll setup a properties to store data based on authentication state.
+4. Later on we'll explore how firebase handles authentication, so we'll setup properties to store data based on authentication state.
 
 <hr>
 
