@@ -653,7 +653,7 @@ render() {
 
 ### Step 4 - Wire Up Input Element in `<Dashboard />` Component
 
-From inside of `Dashboard.js`, we can reference our `text` and `handleChange` members from `props` using `value` and `onChange`.
+From inside our `<Dashboard />` component, we can reference our `text` and `handleChange` members from `props` using `value` and `onChange`.
 
 Here's the code:
 
