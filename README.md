@@ -653,7 +653,7 @@ render() {
 
 ### Step 4 - Wire Up Input Element in `<Dashboard />` Component
 
-From inside our `<Dashboard />` component, we can reference our `text` and `handleChange` members from `props` using `value` and `onChange`.
+From inside our `<Dashboard />` component, we'll reference our `text` and `handleChange` members from `props` using `value` and `onChange`.
 
 Here's the code:
 
@@ -671,7 +671,8 @@ const Dashboard = props => (
             }
         </div>
         <form>
-            <input 
+            <input
+            name="text" 
             value={props.text} 
             onChange={props.handleChange}
             />
@@ -687,7 +688,7 @@ export default Dashboard
 
 ### Step 5 - Create a Submit Handler Method for `<App />` component
 
-Now let’s create a submit handler method for our form element.
+let’s create a submit handler method for our form element.
 
 Here's the code:
 
@@ -737,7 +738,7 @@ render() {
 
 ### Step 7 - Final Setup of Form Element
 
-Now we can reference the `handleSubmit` event handler from props in our form using `onSubmit`
+Let's reference the `handleSubmit` event handler from props in our form using `onSubmit`
 
 Here's the code:
 
@@ -755,7 +756,8 @@ const Dashboard = props => (
             }
         </div>
         <form onSubmit={props.handleSubmit}>
-            <input 
+            <input
+            name="text" 
             value={props.text} 
             onChange={props.handleChange}
             />
@@ -771,9 +773,9 @@ export default Dashboard
 
 ### Step 8 - Setup of Data Fetch Subscription using React Lifecycle Method
 
-Now, inside of `App.js`, let’s take advantage of the `componentDidMount()` lifecycle method to initialize a subscription once the component mounts. 
+Inside our `<App />` component we'll take advantage of the `componentDidMount()` lifecycle method to initialize a subscription once the component mounts. 
 
-As we learned earlier, this subscription will receive new data and update our state array anytime a change is detected.
+As we learned earlier, this subscription will update our state array anytime a change is detected.
 
 
 Here's the code:
@@ -803,7 +805,7 @@ componentDidMount(){
 
 We'll use our `<Dashboard />` component to render our list of todos.
 
-So let's pass our todos state array to our `<Dashboard />` component as a prop.
+let's pass our todos state array to our `<Dashboard />` component as a prop.
 
 Here's the code:
 
@@ -827,7 +829,7 @@ render() {
 
 ### Step 10 - Print Data From State Array in `<Dashboard />` Component 
 
-Now we can iterate our state array using JavaScript’s `.map()` to transform it’s elements into JSX `<p>` elements. 
+Let's iterate our state array using JavaScript’s `.map()` to transform it’s elements into JSX `<p>` elements. 
 
 **NOTE:** _Don't forget to add your key prop!_ :sunglasses:
 
@@ -849,7 +851,8 @@ const Dashboard = props => (
             }
         </div>
         <form onSubmit={props.handleSubmit}>
-            <input 
+            <input
+            name="text" 
             value={props.text} 
             onChange={props.handleChange}
             />
@@ -865,7 +868,7 @@ export default Dashboard
 
 ### Step 11 - Create a Method to Remove Todos
 
-Let’s set up a method inside of `App.js` to remove a todo item based on it’s id. We can create a dynamic path string for `.ref()` using template strings.
+Let’s set up a method inside our `<App />` component to remove a todo item based on it’s id. We can create a dynamic path string for `.ref()` using template strings.
 
 In case you're wondering how we'll manage state, don't worry! 
 
@@ -890,7 +893,7 @@ handleRemove = todoId => {
 
 ### Step 12 - Pass `handleRemove` to `<Dashboard />` Component
 
-We'll use our `handleRemove` method in our `<Dashboard />` component, so let's pass it down as a prop.
+We need to use our `handleRemove` method in our `<Dashboard />` component, so let's pass it down as a prop.
 
 Here's the code:
 
@@ -919,7 +922,7 @@ render() {
 
 Let's finish up our simple “delete todo” feature inside our `<Dashboard />` component.
 
-For simplicity, we don't need to set up anything too fancy, just a simple `<span>` element configured to respond to click events. 
+For simplicity, we don't need to set up anything fancy, just a simple `<span>` element configured to for `click` events. 
 
 We'll reference our `handleRemove` method passing
 in the expected todo id as an argument.
@@ -939,13 +942,14 @@ const Dashboard = props => (
                 props.todos.map(todo => (
                     <p key={todo.id}>
                         <span onClick={() => props.handleRemove(todo.id)}>
-                        X</span> {todo.text}
+                        X</span>&nbsp;{todo.text}
                     </p>
                 ))
             }
         </div>
         <form onSubmit={props.handleSubmit}>
-            <input 
+            <input
+            name="text" 
             value={props.text} 
             onChange={props.handleChange}
             />
@@ -961,9 +965,11 @@ export default Dashboard
 
 ### Step 14 - Simple Firebase Auth
 
-Now it's time to make some sparks fly! We're going to use the `Firebase SDK` for managing authentication state and give our user a simple popup window to "login" using their google account.
+It's time to make some sparks fly! 
 
-Now, depending on Authentication state, we can change component state, which in turn will allow us to manage what our user sees.
+We're going to use the `Firebase SDK` (**Software Development Kit**) for managing authentication state and give our user a simple popup window to "login" using their google account.
+
+Depending on Authentication state, we can change component state, which in turn will allow us to manage what our user sees.
 
 In this lesson, we'll conditionally render components based on authentication state.
 
@@ -1112,7 +1118,7 @@ render() {
 
 ### Finish Login Button 
 
-Now we can set up our login component to call the `handleLogin` method from props.
+Let's set up our `<login />` component to call the `handleLogin` method from props.
 
 Here's the code:
 
@@ -1186,7 +1192,7 @@ render() {
 
 ### Create Logout Button
 
-Now we can create our logout button inside our Dashboard component and wire it to the handleLogout method we passed as a prop.
+Now we can create our logout button inside our `<Dashboard />` component and wire it to the handleLogout method we passed as a prop.
 
 
 Here's the code:
@@ -1205,12 +1211,14 @@ const Dashboard = props => (
 
 <hr>
 
-### Conclusion - At this point, we should have:
+### Conclusion - At this point, we've...
 1. Setup a Google Firebase Project
 2. Use the Google Firebase Real Time Database (RTDB) and Authentication
 3. Learn how to reference Google Firebase documentation
 
 ...and most importantly, we should now have a preliminary understanding of Google Firebase and how to use it with React.
+
+**PLEASE NOTE:** There are other ways to use Google Firebase with React; this is one way that happens to be a simpler les complex way...
 
 There are several items referenced above, but feel free to check out the higher-level references below:
 
