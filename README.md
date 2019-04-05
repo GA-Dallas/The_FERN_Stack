@@ -598,7 +598,7 @@ class App extends Component {
 
 ### Step 2 - Create a Method to Update Component State
 
-To handle form data from `Dashboard.js` as React intended, we’ll Create a `handleChange()` method inside of `App.js` to update it’s state `text` property based on user input.
+To handle form data from our `<Dashboard />` component, we’ll create a `handleChange()` method inside of `App.js` to update it’s state `text` property based on user input.
 
 For more context on how React handles forms, you can check out [this section from the documentation](https://reactjs.org/docs/forms.html)
 
