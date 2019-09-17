@@ -6,18 +6,18 @@
 
 ![react meets firebase](repo_imgs/react_meets_firebase_wht.png)
 For this lesson, we'll look at a secretly popular tech stack known at the FRN stack (Firebase, ReactJS, and NodeJS). 
-
+<!--
 Here are the high level points we'll cover in this lesson:
 
-- Pre-requisites and requirements
+<!-- - Pre-requisites and requirements -->
 - What is Google Firebase?
 - Set up Google Firebase
 - Light overview of React/Setup for lesson
 - Build a Todos App
 - Conclusion
+-->
 
-
-Here are the learning objectives:
+Learning objectives:
 
 _By the end of this lesson, students should be able to:_
 
@@ -26,6 +26,7 @@ _By the end of this lesson, students should be able to:_
 - Reference Google Firebase documentation
 - Demonstrate preliminary understanding of Google Firebase and how to use it with React
 
+<!--
 <hr>
 
 ## Pre-requisites and Requirements
@@ -43,6 +44,7 @@ _To have success in this lesson, students should have:_
 _Please see below for links to the resources referenced above_
 
 <hr>
+-->
 
 ## What is Google Firebase?
 
