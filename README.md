@@ -35,9 +35,9 @@ Many companies and their developers have found tremendous value in Google Fireba
 
 Ever since Google acquired Firebase, it's rise in popularity has skyrocked to where it is today. 
 
-**Firebase has exploaded with robust features for both web and mobile applications and most importantly, the ability to synchronize your web apps with a mobile companion.**
+_Firebase has exploaded with robust features for both web and mobile applications and most importantly, the ability to synchronize your web apps with a mobile companion._
 
-**This is a huge win for developers, because they can create a seamless experience for users no matter which device they're using**
+_This is a huge win for developers, because they can create a seamless experience for users no matter which device they're using_
 
 <hr>
 
