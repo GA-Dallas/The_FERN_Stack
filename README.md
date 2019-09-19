@@ -2,7 +2,7 @@
 
 |Created By | Role | Last Update | Email |
 |:---------:|:----:|:-----------:|:-----:|
-| Daniel Scott | SEI Lead Local Instructor Dallas | 04/03/2019 | daniel.scott@generalassemb.ly |
+| Daniel Scott | SEI Lead Local Instructor Dallas | 09/03/2019 | daniel.scott@generalassemb.ly |
 
 ![react meets firebase](repo_imgs/react_meets_firebase_wht.png)
 ### For this lesson, we'll look at a secretly popular tech stack known at the FRN stack 
@@ -61,7 +61,7 @@ It's the moment we've all been waiting for!
 
 It's time to set up Google Firebase!
 
-**The First Step to Get Started is to "Signup For Google Firebase" and "signin"**
+**The First Step to Get Started is to "Signup For Google Firebase" and "sign in"**
 
 Go to: [https://firebase.google.com/](https://firebase.google.com/)
 
