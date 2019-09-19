@@ -4,11 +4,12 @@
 |:---------:|:----:|:-----------:|:-----:|
 | Daniel Scott | SEI Lead Local Instructor Dallas | 09/03/2019 | daniel.scott@generalassemb.ly |
 
-![react meets firebase](repo_imgs/react_meets_firebase_wht.png)
 ### For this lesson, we'll look at a secretly popular tech stack known at the FRN stack 
-### (Firebase, ReactJS, and NodeJS). 
 
-Learning objectives:
+![react meets firebase](repo_imgs/react_meets_firebase_wht.png)
+
+
+**Our Learning objectives:**
 
 _By the end of this lesson, students should be able to:_
 
@@ -28,38 +29,56 @@ _“Firebase frees developers, so they can focus on creating phenomenal user exp
 _“Firebase is your server, your API and your datastore."_
 
 ### Who Uses Google Firebase?
+Many companies and their developers have found tremendous value in Google Firebase, which is why you probably recognize and use most of these brands!
 
 ![who uses google firebase?](repo_imgs/who_uses_firebase.png)
 
-Ever since Google acquired Firebase in 2014, it's rise in popularity has skyrocked to where it is today. 
+Ever since Google acquired Firebase, it's rise in popularity has skyrocked to where it is today. 
 
-Since the Google acquisition, Firebase exploaded with robust features for both web and mobile applications.
+**Firebase has exploaded with robust features for both web and mobile applications and most importantly, the ability to synchronize your web apps with a mobile companion.**
 
-Many companies and their developers have found tremendous value in this technology, which is why you probably recognize most of these brands!
+**This is a huge win for developers, because they can create a seamless experience for users no matter which device they're using**
+
+<hr>
+
+#### Activity 2 Minutes :gear:
+
+_Think of a website/web application you have an account with that shares the same user experience with a mobile app companion_
+
+_**example:** You can start an interaction with the website and "pick up where you left off at" on the mobile app, as if the same experience persisted no matter which device you used_
+
+
+_Then let's discuss what we came up with!_ :speech_balloon:
+
+<hr>
 
 ### Not Just A Database
+When developers first learn about "Google Firebase", they often get stuck on the **_'base_** in **"Firebase"**. 
+This often leads them into thinking that it's just a Database. 
 
-When people hear "Google Firebase" for the first time, they often get confused thinking it's just a Database. Although the Real Time Database is a core feature, it's just one of several services you can use from Google Firebase:
+Although the Real Time Database (RTDB) is a core feature, it's just one of several services you can use with Google Firebase!
 
 ![firebase services](repo_imgs/firebase_services.png)
 
 **The Best Definition of Google Firebase is that it's a "BAAS" (Backend As A Service)**
 
-![google firebase](repo_imgs/google_firebase.png)
+We encourage you to check out some of these other services as you continue exploring this amazing resource
+however, for this lesson, we'll focus on learning how to implement the Real Time Database Feature.
 
-### The Google Firebase Real Time Database (RTDB)
+
+### The Google Firebase Real Time Database
 - The Core Service That Put the Spotlight on Firebase
 - A Single JSON Object that allows up to 32 levels of Depth 
   
   (We don't recommend nesting your data that deep though)
+  
+![google firebase](repo_imgs/google_firebase.png)
 
 <hr>
 
 ## Setup Google Firebase
 
-It's the moment we've all been waiting for! 
-
-It's time to set up Google Firebase!
+It's the moment we've all been waiting for, it's time to set up Google Firebase!
 
 **The First Step to Get Started is to "Signup For Google Firebase" and "sign in"**
 
