@@ -56,7 +56,7 @@ _Then let's discuss what we came up with!_ :speech_balloon:
 
 ### Not Just A Database
 When developers first learn about "Google Firebase", they often get stuck on the **_'base_** in **"Firebase"**. 
-This often leads them into thinking that it's just a Database. 
+<br>This often leads them into thinking that it's just a Database. 
 
 Although the Real Time Database (RTDB) is a core feature, it's just one of several services you can use with Google Firebase!
 
