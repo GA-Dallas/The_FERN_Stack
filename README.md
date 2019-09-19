@@ -91,7 +91,7 @@ _services do you plan to explore after this lesson?_ :thinking_face:
 - Cloud Storage
 
 
-We'll take a poll on this and then discuss what we came up with! :speech_balloon:
+We'll take a poll on this and then discuss what we came up with! 
 
 <hr>
 
