@@ -13,7 +13,7 @@ Learning objectives:
 _By the end of this lesson, students should be able to:_
 
 - Setup a Google Firebase Project
-- Use the Google Firebase Real Time Database (RTDB) and Authentication
+- Use the Google Firebase Real Time Database (RTDB) and Authentication Service
 - Reference Google Firebase documentation
 - Demonstrate preliminary understanding of Google Firebase and how to use it with React
 
