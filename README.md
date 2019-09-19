@@ -20,7 +20,7 @@ _By the end of this lesson, students should be able to:_
 
 
 
-## What is Google Firebase?
+## What is Google Firebase? 5 Mins
 
 _Founded by James Tamplin and Andrew Lee as “Firebase” in 2011, then acquired by Google in 2014._
 
@@ -32,6 +32,8 @@ _“Firebase is your server, your API and your datastore."_
 Many companies and their developers have found tremendous value in Google Firebase, which is why you probably recognize and use most of these brands!
 
 ![who uses google firebase?](repo_imgs/who_uses_firebase.png)
+
+### Why Use Google Firebase
 
 Ever since Google acquired Firebase, it's rise in popularity has skyrocked to where it is today. 
 
@@ -73,6 +75,23 @@ however, for this lesson, we'll focus on learning how to implement the Real Time
   (We don't recommend nesting your data that deep though)
   
 ![google firebase](repo_imgs/google_firebase.png)
+
+<hr>
+
+#### Activity 3 Minutes :gear:
+
+_Take a Look At Cloud Firestore, Firebase Hosting, and Cloud Storage_
+_Which are other Features Available With Google Firebase_
+
+_Beyond the Real Time Database and Authentication, which one of the following_ 
+_services do you plan to explore after this lesson?_ :thinking_face:
+
+- Cloud Firestore
+- Firebase Hosting
+- Cloud Storage
+
+
+We'll take a poll on this and then discuss what we came up with! :speech_balloon:
 
 <hr>
 
